@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <head>
         <script src="https://cdn.syncfusion.com/ej2/20.3.47/dist/ej2.min.js" type="text/javascript"></script>
-      
+        
         <link href="https://cdn.syncfusion.com/ej2/20.3.47/material.css" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-base/styles/material.css" rel="stylesheet">
@@ -10,60 +10,43 @@
         <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-splitbuttons/styles/material.css" rel="stylesheet">
         <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-diagrams/styles/material.css" rel="stylesheet">
         <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-navigations/styles/fabric.css" rel="stylesheet">
+        <link href="http://cdn.syncfusion.com/ej2/20.3.47/ej2-dropdowns/styles/material.css" rel="stylesheet">
+        <link href="http://cdn.syncfusion.com/ej2/20.3.47/ej2-inputs/styles/material.css" rel="stylesheet" type="text/css"/>
         <link href="./assets/index.css" rel="stylesheet" />
+        <!-- <link href="./assets/css/outlook.css"  rel="stylesheet"> -->
+        <!-- <link href="./assets/index.css"  rel="stylesheet"> -->
         <link href="./assets/db-icons1/style.css" rel="stylesheet" />
-        <link href="./assets/dbstyle/diagrambuilder.css" rel="stylesheet" />
+      
+        <!-- <link href="./assets/dbstyle/diagrambuilder.css" rel="stylesheet" /> -->
     </head>
     <body>
-    <div class='diagrambuilder-container' >
-        <div class='header navbar'>
-            <div class="db-header-container">
-                
-                <div class='db-menu-container'>
-                    <div class="db-menu-style">
-                        <button id="btnFileMenu"></button>
-                    </div>
-                    <div class="db-menu-style">
-                        <button id="btnHomeMenu"></button>
-                    </div>
-                    <div class="db-menu-style">
-                        <button id="btnInsertMenu"></button>
-                    </div>
-                    <div class="db-menu-style">
-                        <button id="btnDesignMenu"></button>
-                    </div>
-                    <div class="db-menu-style">
-                        <button id="btnViewMenu"></button>
-                    </div>   
+        <div class="e-sample-resize-container">
+        <!-- <div class="stackblitz-container bootstrap5">
+            <div class="control-section"> -->
+                <div class="menu-control">
+                    <ul id="menu"></ul>
                 </div>
+                <!-- <input type="file" id="fileupload" name="UploadFiles"> -->
+                <div class="db-toolbar-Editor">
+                        <div id="toolbar_default">
+                        </div>
+                    </div>
             </div>
-            <div class='db-toolbar-editor'>
-                <div class='db-toolbar-container'>
-                        <div id="toolbarEditor"></div>
-                </div>
-                <div class="db-toolbar-hide-btn">
-                        <button id="btnHideToolbar"></button>
-                </div>
-            </div>
-        </div>
-        <div class='row content'>
-            <div class='sidebar show-overview'>
-                <div class="db-palette-parent">
-                    <div id="symbolpalette"></div>
-                </div>
             
-            </div>
-            <div class='main-content' role='main'>
-                <div class="db-diagram-container">
-                    <div id="diagramContainerDiv" class='db-current-diagram-container'>
-                        <div id="diagram"></div>
+            <link href="https://ej2.syncfusion.com/demos/src/diagram/styles/diagram-common.css" rel="stylesheet"> 
+                <!-- <div style="width: 100%;"> -->
+                    <div class="sb-mobile-palette-bar">
+                    <div id="palette-icon" style="float: right;" role="button" class="e-ddb-icons1 e-toggle-palette"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        <script src="./scripts/selector.js"></script>
-        <script src="index.js" type="text/javascript"></script> 
-        
+                    <div id="palette-space" class="sb-mobile-palette">
+                    <div id="symbolpalette" style="width:90%;"></div>
+                    </div>
+                    <div id="diagram-space" class="sb-mobile-diagram">
+                    <div id="diagram"></div>
+                    </div>
+                <script src="index.js"></script>
+                <!-- </div> -->
+            <!-- </div>
+        </div> -->
     </body>
 </html>

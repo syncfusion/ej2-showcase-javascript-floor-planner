@@ -1,953 +1,722 @@
-var selectedItem = new SelectorViewModel();
-
-window.onload = function () {
-    diagram = document.getElementById("diagram").ej2_instances[0];
-    symbolpalette = document.getElementById("symbolpalette").ej2_instances[0];
-    selectedItem.selectedDiagram = document.getElementById("diagram").ej2_instances[0];
+ej.base.enableRipple(true);
+ej.diagrams.Diagram.Inject(ej.diagrams.UndoRedo);
+ej.diagrams.Diagram.Inject(ej.diagrams.PrintAndExport);
+var selectedItem; 
+window.onload = function ()
+{
+  diagram = document.getElementById("diagram").ej2_instances[0];
+  selectedItem = document.getElementById("diagram").ej2_instances[0];
 }
 
 var nodes =[ 
+  {
+  id :'node1',
+  // Position of the node
+  offsetX: 370,
+  offsetY: 210,
+  // Size of the node
+  width: 100,
+  height: 60,
+   shape: { type: 'Basic', shape: 'Rectangle' },
+   
+    },
     {
-    id :'node1',
+    id :'node2',
     // Position of the node
-    offsetX: 370,
+    offsetX: 533.5,
     offsetY: 210,
     // Size of the node
     width: 100,
     height: 60,
-     shape: { type: 'Basic', shape: 'Rectangle' },
-     
-      },
-      {
-      id :'node2',
-      // Position of the node
-      offsetX: 533.5,
-      offsetY: 210,
-      // Size of the node
-      width: 100,
-      height: 60,
-      shape: { type: 'Basic', shape: 'Rectangle' }
-    },
-  {
-    id :'node3',
-    //Position of the node
-    offsetX: 640,
-    offsetY: 220,
-    //Size of the node
-    width: 40,
-    height: 80,
     shape: { type: 'Basic', shape: 'Rectangle' }
   },
-  {
-    id :'node4',
-    offsetX: 730,
-    offsetY: 200,
-    // Size of the node
-    width: 20,
-    height: 40,
-    shape: {type: 'Path', data: 'M540.3643,137.9336L546.7973,159.7016L570.3633,159.7296L550.7723,171.9366L558.9053,194.9966L540.3643,179.4996L521.8223,194.9966L529.9553,171.9366L510.3633,159.7296L533.9313,159.7016L540.3643,137.9336z' }
+{
+  id :'node3',
+  //Position of the node
+  offsetX: 640,
+  offsetY: 220,
+  //Size of the node
+  width: 40,
+  height: 80,
+  shape: { type: 'Basic', shape: 'Rectangle' }
+},
+{
+  id :'node4',
+  offsetX: 730,
+  offsetY: 200,
+  // Size of the node
+  width: 20,
+  height: 40,
+  shape: {type: 'Path', data: 'M540.3643,137.9336L546.7973,159.7016L570.3633,159.7296L550.7723,171.9366L558.9053,194.9966L540.3643,179.4996L521.8223,194.9966L529.9553,171.9366L510.3633,159.7296L533.9313,159.7016L540.3643,137.9336z' }
+},
+{
+  id :'node5',
+  // Position of the node
+  offsetX: 820,
+  offsetY: 210,
+  // Size of the node
+  width: 40,
+  height: 70,
+  shape: { type: 'Basic', shape: 'Ellipse' }
+},
+{
+  id :'node6',
+  // Position of the node
+  offsetX: 850,
+  offsetY: 274.8,
+  // Size of the node
+  width: 50,
+  height: 50,
+  shape: { type: 'Basic', shape: 'Ellipse' }
+},
+{
+  id :'node7',
+  // Position of the node
+  offsetX: 855,
+  offsetY: 349.2,
+  // Size of the node
+  width: 50,
+  height: 20,
+  shape: {type: 'Path', data: 'M540.3643,137.9336L546.7973,159.7016L570.3633,159.7296L550.7723,171.9366L558.9053,194.9966L540.3643,179.4996L521.8223,194.9966L529.9553,171.9366L510.3633,159.7296L533.9313,159.7016L540.3643,137.9336z' }
+},
+{
+  id :'node8',
+  // Position of the node
+  offsetX: 850,
+  offsetY: 426,
+ // Size of the node
+  width: 50,
+  height: 50,
+  shape: { type: 'Basic', shape: 'Rectangle' }
+},
+{
+  id :'node9',
+  // Position of the node
+  offsetX: 760.1,
+  offsetY: 359.8,
+  // Size of the node
+  width: 100,
+  height: 50,
+  shape: { type: 'Basic', shape: 'Rectangle' }
+},
+{
+  id :'node10',
+  // Position of the node
+  offsetX: 680,
+  offsetY: 426,
+  // Size of the node
+  width: 50,
+  height: 50,
+  shape: { type: 'Basic', shape: 'Rectangle' }
+},
+{
+  id :'node11',
+  // Position of the node
+  offsetX: 773.1,
+  offsetY: 534.8,
+  // Size of the node
+  width: 100,
+  height: 20,
+  shape: { type: 'Basic', shape: 'Rectangle' }
   },
-  {
-    id :'node5',
-    // Position of the node
-    offsetX: 820,
-    offsetY: 210,
-    // Size of the node
-    width: 40,
-    height: 70,
-    shape: { type: 'Basic', shape: 'Ellipse' }
-  },
-  {
-    id :'node6',
-    // Position of the node
-    offsetX: 850,
-    offsetY: 274.8,
-    // Size of the node
-    width: 50,
-    height: 50,
-    shape: { type: 'Basic', shape: 'Ellipse' }
-  },
-  {
-    id :'node7',
-    // Position of the node
-    offsetX: 855,
-    offsetY: 349.2,
-    // Size of the node
-    width: 50,
-    height: 20,
-    shape: {type: 'Path', data: 'M540.3643,137.9336L546.7973,159.7016L570.3633,159.7296L550.7723,171.9366L558.9053,194.9966L540.3643,179.4996L521.8223,194.9966L529.9553,171.9366L510.3633,159.7296L533.9313,159.7016L540.3643,137.9336z' }
-  },
-  {
-    id :'node8',
-    // Position of the node
-    offsetX: 850,
-    offsetY: 426,
+{
+  id :'node12',
+  // Position of the node
+  offsetX: 550,
+  offsetY: 270,
    // Size of the node
+  width: 40,
+  height: 20,
+  shape: { type: 'Basic', shape: 'Rectangle' }
+},
+{
+  id :'node13',
+  // Position of the node
+  offsetX: 550,
+  offsetY: 300,
+  // Size of the node
+  width: 50,
+  height: 20,
+  shape: { type: 'Flow', shape: 'Terminator' }
+},
+{
+  id :'node14',
+ // Position of the node
+ offsetX: 400,
+ offsetY: 270,
+ // Size of the node
+ width: 40,
+ height: 20,
+ shape: { type: 'Basic', shape: 'Rectangle' }
+},
+{
+  id :'node15',
+  // Position of the node
+  offsetX: 400,
+  offsetY: 300,
+  // Size of the node
+  width: 50,
+  height: 20,
+  shape: { type: 'Flow', shape: 'Terminator' }
+},
+{
+  id :'node16',
+  // Position of the node
+  offsetX: 560,
+  offsetY: 340,
+  // Size of the node
+  width: 90,
+  height: 30,
+  shape: { type: 'Basic', shape: 'Rectangle' }
+},
+{
+  id :'node32',
+ // Position of the node
+  offsetX: 785,
+  offsetY: 273.5,
+  // Size of the node
+  width: 50,
+  height: 50,
+  // flip :'Horizontal',
+  shape: { type: 'Path', data: 'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882' }
+},
+{
+  id :'node33',
+ // Position of the node
+ offsetX: 486,
+ offsetY: 298,
+ // Size of the node
+ width: 50,
+ height: 50,
+ flip : 'Vertical',
+ shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
+},
+{
+   id :'node17',
+  // Position of the node
+  offsetX: 643,
+  offsetY: 298,
+  // Size of the node
+  width: 50,
+  height: 50,
+  flip : 'Vertical',
+  shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
+},
+{
+  id :'node18',
+  // Position of the node
+  offsetX: 323,
+  offsetY: 298,
+  // Size of the node
+  width: 50,
+  height: 50,
+  flip : 'Vertical',
+  shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
+},
+{
+  id :'node19',
+  // Position of the node
+  offsetX: 250,
+  offsetY: 360,
+  // Size of the node
+  width: 60,
+  height:30,
+  shape: { type: 'Basic', shape: 'Ellipse' }
+},
+{
+  id :'node20',
+  // Position of the node
+  offsetX: 230,
+  offsetY: 422,
+  // Size of the node
+  width:40,
+  height: 20,
+  shape: { type: 'Basic', shape: 'Rectangle' }
+},
+{
+  id :'node21',
+  // Position of the node
+  offsetX: 400,
+  offsetY: 422,
+  // Size of the node
+  width:80,
+  height: 30,
+  shape: { type: 'Basic', shape: 'Rectangle' }
+  },
+ {
+    id :'node22',
+    // Position of the node
+    offsetX: 336,
+    offsetY: 378,
+    // Size of the node
     width: 50,
     height: 50,
-    shape: { type: 'Basic', shape: 'Rectangle' }
-  },
+    flip : 'Vertical',
+    shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
+    },                                 
   {
-    id :'node9',
+    id :'node23',
     // Position of the node
-    offsetX: 760.1,
-    offsetY: 359.8,
+    offsetX:240,
+    offsetY:515,
     // Size of the node
-    width: 100,
-    height: 50,
-    shape: { type: 'Basic', shape: 'Rectangle' }
-  },
-  {
-    id :'node10',
-    // Position of the node
-    offsetX: 680,
-    offsetY: 426,
-    // Size of the node
-    width: 50,
-    height: 50,
-    shape: { type: 'Basic', shape: 'Rectangle' }
-  },
-  {
-    id :'node11',
-    // Position of the node
-    offsetX: 773.1,
-    offsetY: 534.8,
-    // Size of the node
-    width: 100,
-    height: 20,
-    shape: { type: 'Basic', shape: 'Rectangle' }
-    },
-  {
-    id :'node12',
-    // Position of the node
-    offsetX: 550,
-    offsetY: 270,
-     // Size of the node
     width: 40,
     height: 20,
     shape: { type: 'Basic', shape: 'Rectangle' }
   },
   {
-    id :'node13',
+    id :'node24',
     // Position of the node
-    offsetX: 550,
-    offsetY: 300,
+    offsetX: 240,
+    offsetY: 540,
     // Size of the node
     width: 50,
     height: 20,
     shape: { type: 'Flow', shape: 'Terminator' }
   },
   {
-    id :'node14',
-   // Position of the node
-   offsetX: 400,
-   offsetY: 270,
-   // Size of the node
-   width: 40,
-   height: 20,
-   shape: { type: 'Basic', shape: 'Rectangle' }
-  },
-  {
-    id :'node15',
+    id :'node25',
     // Position of the node
-    offsetX: 400,
-    offsetY: 300,
+    offsetX: 300,
+    offsetY: 520,
     // Size of the node
     width: 50,
     height: 20,
-    shape: { type: 'Flow', shape: 'Terminator' }
+    shape: {type: 'Path', data: 'M540.3643,137.9336L546.7973,159.7016L570.3633,159.7296L550.7723,171.9366L558.9053,194.9966L540.3643,179.4996L521.8223,194.9966L529.9553,171.9366L510.3633,159.7296L533.9313,159.7016L540.3643,137.9336z' }
   },
   {
-    id :'node16',
-    // Position of the node
-    offsetX: 560,
-    offsetY: 340,
-    // Size of the node
-    width: 90,
-    height: 30,
+    id :'node26',
+  // Position of the node
+    offsetX: 390,
+    offsetY: 515,
+  // Size of the node
+    width: 100,
+    height: 60,
     shape: { type: 'Basic', shape: 'Rectangle' }
   },
   {
-    id :'node32',
-   // Position of the node
-    offsetX: 785,
-    offsetY: 273.5,
+    id :'node27',
+  // Position of the node
+    offsetX: 535,
+    offsetY: 478,
+  // Size of the node
+    width: 100,
+    height: 120,
+    shape: { type: 'Basic', shape: 'Rectangle' }
+  },
+  {
+    id :'node28',
+    // Position of the node
+    offsetX: 675,
+    offsetY: 538,
     // Size of the node
     width: 50,
     height: 50,
-    // flip :'Horizontal',
+    flip : 'Vertical',
+    shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
+    },
+  {
+    id :'node29',
+    // Position of the node
+    offsetX: 908,
+    offsetY: 495,
+    // Size of the node
+    width: 50,
+    height: 50,
     shape: { type: 'Path', data: 'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882' }
   },
   {
-    id :'node33',
-   // Position of the node
-   offsetX: 486,
-   offsetY: 298,
-   // Size of the node
-   width: 50,
-   height: 50,
-   flip : 'Vertical',
-   shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
-  },
-  {
-     id :'node17',
-    // Position of the node
-    offsetX: 643,
-    offsetY: 298,
-    // Size of the node
-    width: 50,
+    id :'node30',
+  // Position of the node
+    offsetX: 952,
+    offsetY: 357,
+  // Size of the node
+    width: 100,
     height: 50,
-    flip : 'Vertical',
-    shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
+    shape: { type: 'Basic', shape: 'Rectangle' }
   },
   {
-    id :'node18',
-    // Position of the node
-    offsetX: 323,
-    offsetY: 298,
-    // Size of the node
-    width: 50,
-    height: 50,
-    flip : 'Vertical',
-    shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
-  },
-  {
-    id :'node19',
-    // Position of the node
-    offsetX: 250,
-    offsetY: 360,
-    // Size of the node
+    id :'node31',
+  // Position of the node
+    offsetX: 1016,
+    offsetY: 450,
+  // Size of the node
     width: 60,
-    height:30,
-    shape: { type: 'Basic', shape: 'Ellipse' }
-  },
-  {
-    id :'node20',
-    // Position of the node
-    offsetX: 230,
-    offsetY: 422,
-    // Size of the node
-    width:40,
-    height: 20,
+    height: 100,
     shape: { type: 'Basic', shape: 'Rectangle' }
   },
-  {
-    id :'node21',
-    // Position of the node
-    offsetX: 400,
-    offsetY: 422,
-    // Size of the node
-    width:80,
-    height: 30,
-    shape: { type: 'Basic', shape: 'Rectangle' }
-    },
-   {
-      id :'node22',
-      // Position of the node
-      offsetX: 336,
-      offsetY: 378,
-      // Size of the node
-      width: 50,
-      height: 50,
-      flip : 'Vertical',
-      shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
-      },                                 
-    {
-      id :'node23',
-      // Position of the node
-      offsetX:240,
-      offsetY:515,
-      // Size of the node
-      width: 40,
-      height: 20,
-      shape: { type: 'Basic', shape: 'Rectangle' }
-    },
-    {
-      id :'node24',
-      // Position of the node
-      offsetX: 240,
-      offsetY: 540,
-      // Size of the node
-      width: 50,
-      height: 20,
-      shape: { type: 'Flow', shape: 'Terminator' }
-    },
-    {
-      id :'node25',
-      // Position of the node
-      offsetX: 300,
-      offsetY: 520,
-      // Size of the node
-      width: 50,
-      height: 20,
-      shape: {type: 'Path', data: 'M540.3643,137.9336L546.7973,159.7016L570.3633,159.7296L550.7723,171.9366L558.9053,194.9966L540.3643,179.4996L521.8223,194.9966L529.9553,171.9366L510.3633,159.7296L533.9313,159.7016L540.3643,137.9336z' }
-    },
-    {
-      id :'node26',
-    // Position of the node
-      offsetX: 390,
-      offsetY: 515,
-    // Size of the node
-      width: 100,
-      height: 60,
-      shape: { type: 'Basic', shape: 'Rectangle' }
-    },
-    {
-      id :'node27',
-    // Position of the node
-      offsetX: 535,
-      offsetY: 478,
-    // Size of the node
-      width: 100,
-      height: 120,
-      shape: { type: 'Basic', shape: 'Rectangle' }
-    },
-    {
-      id :'node28',
-      // Position of the node
-      offsetX: 675,
-      offsetY: 538,
-      // Size of the node
-      width: 50,
-      height: 50,
-      flip : 'Vertical',
-      shape: { type: 'Path', data:'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882'},
-      },
-    {
-      id :'node29',
-      // Position of the node
-      offsetX: 908,
-      offsetY: 495,
-      // Size of the node
-      width: 50,
-      height: 50,
-      shape: { type: 'Path', data: 'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882' }
-    },
-    {
-      id :'node30',
-    // Position of the node
-      offsetX: 952,
-      offsetY: 357,
-    // Size of the node
-      width: 100,
-      height: 50,
-      shape: { type: 'Basic', shape: 'Rectangle' }
-    },
-    {
-      id :'node31',
-    // Position of the node
-      offsetX: 1016,
-      offsetY: 450,
-    // Size of the node
-      width: 60,
-      height: 100,
-      shape: { type: 'Basic', shape: 'Rectangle' }
-    },
-  ];
-  var connectors = [{
-    id: "connector1",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 280,
-        y: 160
-    },
-    targetPoint: {
-        x: 885,
-        y: 160
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector2",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 200,
-        y: 320
-    },
-    targetPoint: {
-        x: 300,
-        y: 320
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector3",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 350,
-        y: 320
-    },
-    targetPoint: {
-        x: 460,
-        y: 320
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector4",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 510,
-        y: 320
-    },
-    targetPoint: {
-        x: 620,
-        y: 320
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector5",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 670,
-        y: 320
-    },
-    targetPoint: {
-        x: 1060,
-        y: 320
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector6",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 200,
-        y: 560
-    },
-    targetPoint: {
-        x: 655,
-        y: 560
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector7",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 700,
-        y: 560
-    },
-    targetPoint: {
-        x: 1060,
-        y: 560
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector8",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 280,
-        y: 160
-    },
-    targetPoint: {
-        x: 280,
-        y: 320
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector9",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 440,
-        y: 160
-    },
-    targetPoint: {
-        x: 440,
-        y: 320
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector10",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 600,
-        y: 160
-    },
-    targetPoint: {
-        x: 600,
-        y: 320
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector11",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 760,
-        y: 160
-    },
-    targetPoint: {
-        x: 760,
-        y: 250
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector12",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 760,
-        y: 300
-    },
-    targetPoint: {
-        x: 760,
-        y: 320
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector13",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 885,
-        y: 160
-    },
-    targetPoint: {
-        x: 885,
-        y: 470
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector14",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 885,
-        y: 520
-    },
-    targetPoint: {
-        x: 885,
-        y: 560
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector15",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 200,
-        y: 320
-    },
-    targetPoint: {
-        x: 200,
-        y: 560
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector16",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 300,
-        y: 320
-    },
-    targetPoint: {
-        x: 300,
-        y: 400
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector17",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 260,
-        y: 400
-    },
-    targetPoint: {
-        x: 310,
-        y: 400
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector18",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 360,
-        y: 400
-    },
-    targetPoint: {
-        x: 460,
-        y: 400
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector19",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 460,
-        y: 400
-    },
-    targetPoint: {
-        x: 460,
-        y: 560
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  {
-    id: "connector20",
-    style: {
-    strokeWidth: 4
-  },
-    sourcePoint: {
-        x: 1060,
-        y: 320
-    },
-    targetPoint: {
-        x: 1060,
-        y: 560
-    },
-    targetDecorator: {
-      shape: 'none',
-    }
-  },
-  ]
-  
-  var getViewMenuItems = [
-    { text: 'Show Rulers' },
-    { text: 'Show Grid', iconCss: 'sf-icon-Selection' }, { separator: true },
-    { text: 'Snap To Grid' },
-    { text: 'Page Break'},{ separator: true },
-    { text: 'Fit To Screen' }, { separator: true },
-     { text: 'Show Guides', iconCss: 'sf-icon-Selection' },
-    
-    
 ];
-var btnViewMenu = new ej.splitbuttons.DropDownButton({
-    cssClass: 'db-dropdown-menu',
-    items: getViewMenuItems,
-    content: 'View',
-    select: menuClick,
-    
-});
-btnViewMenu.appendTo('#btnViewMenu');
-function menuClick(args) {
-    var buttonElement = document.getElementsByClassName('e-btn-hover')[0];
-    if (buttonElement) {
-        buttonElement.classList.remove('e-btn-hover');
-    }
-    var diagram = selectedItem.selectedDiagram;
-    var commandType = args.item.text.replace(/[' ']/g, '');
-    switch (commandType.toLowerCase()) {
-        case 'showguides':
-            diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ ej.diagrams.SnapConstraints.SnapToObject;
-            args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
-            break;
-        case 'showgrid':
-            diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ ej.diagrams.SnapConstraints.ShowLines;
-            args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
-            var container = document.getElementsByClassName('db-current-diagram-container')[0];
-            if (!args.item.iconCss) {
-                container.classList.add('db-hide-grid');
-            } else {
-                container.classList.remove('db-hide-grid');
-            }
-            break;
-        case 'snaptogrid':
-            diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ ej.diagrams.SnapConstraints.SnapToLines;
-            args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
-            break;
-        case 'fittoscreen':
-            diagram.fitToPage({ mode: 'Page', region: 'Content', margin: { left: 0, top: 0, right: 0, bottom: 0 } });
-            break;
-        case 'showrulers':
-            selectedItem.selectedDiagram.rulerSettings.showRulers = !selectedItem.selectedDiagram.rulerSettings.showRulers;
-            if (selectedItem.selectedDiagram.rulerSettings.showRulers) {
-                selectedItem.selectedDiagram.rulerSettings.dynamicGrid = false;
-            }
-            args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
-            container = document.getElementsByClassName('db-current-diagram-container')[0];
-            if (!args.item.iconCss) {
-                container.classList.remove('db-show-ruler');
-            } else {
-                container.classList.add('db-show-ruler');
-            }
-            break;
-        case 'pagebreak':
-            args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
-            if(args.item.iconCss == 'sf-icon-Selection' ){
-                diagram.pageSettings.showPageBreaks = true;
-            }
-            else 
-            {
-                diagram.pageSettings.showPageBreaks = false;
-            }     
-    }
-    diagram.dataBind();
-}
+var connectors = [{
+  id: "connector1",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 280,
+      y: 160
+  },
+  targetPoint: {
+      x: 885,
+      y: 160
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector2",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 200,
+      y: 320
+  },
+  targetPoint: {
+      x: 300,
+      y: 320
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector3",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 350,
+      y: 320
+  },
+  targetPoint: {
+      x: 460,
+      y: 320
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector4",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 510,
+      y: 320
+  },
+  targetPoint: {
+      x: 620,
+      y: 320
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector5",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 670,
+      y: 320
+  },
+  targetPoint: {
+      x: 1060,
+      y: 320
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector6",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 200,
+      y: 560
+  },
+  targetPoint: {
+      x: 655,
+      y: 560
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector7",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 700,
+      y: 560
+  },
+  targetPoint: {
+      x: 1060,
+      y: 560
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector8",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 280,
+      y: 160
+  },
+  targetPoint: {
+      x: 280,
+      y: 320
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector9",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 440,
+      y: 160
+  },
+  targetPoint: {
+      x: 440,
+      y: 320
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector10",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 600,
+      y: 160
+  },
+  targetPoint: {
+      x: 600,
+      y: 320
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector11",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 760,
+      y: 160
+  },
+  targetPoint: {
+      x: 760,
+      y: 250
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector12",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 760,
+      y: 300
+  },
+  targetPoint: {
+      x: 760,
+      y: 320
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector13",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 885,
+      y: 160
+  },
+  targetPoint: {
+      x: 885,
+      y: 470
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector14",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 885,
+      y: 520
+  },
+  targetPoint: {
+      x: 885,
+      y: 560
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector15",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 200,
+      y: 320
+  },
+  targetPoint: {
+      x: 200,
+      y: 560
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector16",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 300,
+      y: 320
+  },
+  targetPoint: {
+      x: 300,
+      y: 400
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector17",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 260,
+      y: 400
+  },
+  targetPoint: {
+      x: 310,
+      y: 400
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector18",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 360,
+      y: 400
+  },
+  targetPoint: {
+      x: 460,
+      y: 400
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector19",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 460,
+      y: 400
+  },
+  targetPoint: {
+      x: 460,
+      y: 560
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+{
+  id: "connector20",
+  style: {
+  strokeWidth: 4
+},
+  sourcePoint: {
+      x: 1060,
+      y: 320
+  },
+  targetPoint: {
+      x: 1060,
+      y: 560
+  },
+  targetDecorator: {
+    shape: 'none',
+  }
+},
+]
 
-var toolbarEditor = new ej.navigations.Toolbar({
-    overflowMode: 'Scrollable',
-    // clicked: toolbarEditorClick,
-    items: [
-        {
-            prefixIcon: 'sf-icon-Save', tooltipText: 'Save As'
-        },
-        {
-            prefixIcon: 'e-ddb-icons e-open', tooltipText: 'Open' 
-        },
-        {
-            prefixIcon: 'sf-icon-Print', tooltipText: 'Print' },
-        {
-            type: 'Input', text: 'Export',prefixIcon:'sf-icon-Export', template: '<button id="custombtn" style="width:100%;"></button>'},
-        {
-            type: 'Separator'
-        },
-        {
-            prefixIcon: 'sf-icon-Cut', tooltipText: 'Cut' },
-        {
-            prefixIcon: 'sf-icon-Copy', tooltipText: 'Copy' },
-        {
-            prefixIcon: 'sf-icon-Paste', tooltipText: 'Paste' },
-        {
-            type: 'Separator' },
-        {
-            prefixIcon: 'sf-icon-Undo tb-icons', tooltipText: 'Undo', cssClass: 'tb-item-end tb-item-undo'
-        },
-        {
-            prefixIcon: 'sf-icon-Redo tb-icons', tooltipText: 'Redo', cssClass: 'tb-item-end tb-item-redo'
-        },
-        {
-            type: 'Separator'
-        },
-        {
-            prefixIcon: 'e-icons e-bold', tooltipText: 'Bold', template: '<button id="bold" style="width:100%;"></button>'  },
-        {
-            prefixIcon: 'e-icons e-underline', tooltipText: 'Underline' ,template: '<button id="underline" style="width:100%;"></button>'  },
-        {
-            prefixIcon: 'e-icons e-italic', tooltipText: 'Italic' ,template: '<button id="italic" style="width:100%;"></button>'},
-        // {
-        //     prefixIcon: 'sf-icon-ZoomOut tb-icons', tooltipText: 'Zoom Out(Ctrl + -)', cssClass: 'tb-item-start'
-        // },
-        // {
-        //     cssClass: 'tb-item-end tb-zoom-dropdown-btn', template: '<button id="btnZoomIncrement"></button>'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-ZoomIn tb-icons', tooltipText: 'Zoom In(Ctrl + +)', cssClass: 'tb-item-end'
-        // },
-        // {
-        //     type: 'Separator'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-Pan tb-icons', tooltipText: 'Pan Tool', cssClass: 'tb-item-start'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-Selector tb-icons', tooltipText: 'Pointer', cssClass: 'tb-item-middle tb-item-selected'
-        // },
-        // {
-        //     tooltipText: 'Draw Shapes', cssClass: 'tb-item-middle tb-drawtools-dropdown-btn tb-custom-diagram-disable', 
-        // },
-        // {
-        //     tooltipText: 'Draw Connectors', cssClass: 'tb-item-middle tb-drawtools-dropdown-btn tb-custom-diagram-disable',
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-TextInput tb-icons', tooltipText: 'Text Tool', cssClass: 'tb-item-end tb-custom-diagram-disable'
-        // },
-        // {
-        //     type: 'Separator'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-ColorPickers tb-icons', mode: 'Palette', tooltipText: 'Fill Color', cssClass: 'tb-item-start tb-item-fill'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-Pickers tb-icons', mode: 'Palette', tooltipText: 'Border Color', cssClass: 'tb-item-end tb-item-stroke'
-        // },
-        // {
-        //     type: 'Separator'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-Group tb-icons', tooltipText: 'Group', cssClass: 'tb-item-start tb-item-align-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-Ungroup tb-icons', tooltipText: 'Ungroup', cssClass: 'tb-item-end tb-item-ungroup'
-        // },
-        // {
-        //     type: 'Separator'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-Lock tb-icons', tooltipText: 'Lock', cssClass: 'tb-item-start tb-item-lock-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-Delete tb-icons', tooltipText: 'Delete', cssClass: 'tb-item-end tb-item-lock-category'
-        // },
-        // {
-        //     type: 'Separator'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-Layers tb-icons', tooltipText: 'Show Layers', cssClass: 'tb-item-start tb-custom-diagram-disable'
-        // },
-        // {
-        //     prefixIcon: 'db-theme-svg tb-icons', tooltipText: 'Themes', cssClass: 'tb-item-end tb-custom-diagram-disable'
-        // },
-        // {
-        //     type: 'Separator'
-        // },
-        // {
-        //     type: 'Separator'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-AlignLeft tb-icons', tooltipText: 'Align Left', cssClass: 'tb-item-start tb-item-align-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-AlignHorizontally tb-icons', tooltipText: 'Align Center', cssClass: 'tb-item-middle  tb-item-align-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-AlignRight tb-icons', tooltipText: 'Align Right', cssClass: 'tb-item-middle tb-item-align-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-AilgnTop tb-icons', tooltipText: 'Align Top', cssClass: 'tb-item-middle tb-item-align-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-AlignVertically tb-icons', tooltipText: 'Align Middle', cssClass: 'tb-item-middle tb-item-align-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-AlignBottom tb-icons', tooltipText: 'Align Bottom', cssClass: 'tb-item-middle tb-item-align-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-DistributeHorizontal tb-icons', tooltipText: 'Distribute Objects Vertically', cssClass: 'tb-item-middle tb-item-space-category'
-        // },
-        // {
-        //     prefixIcon: 'sf-icon-DistributeVertical tb-icons', tooltipText: 'Distribute Objects Horizontally', cssClass: 'tb-item-end tb-item-space-category'
-        // },
-    ]
-});
-toolbarEditor.appendTo('#toolbarEditor');
-
+  
 var diagram = new ej.diagrams.Diagram({
-    width: '100%',
-    height: '100%',
-    nodes : nodes, connectors: connectors,
+    width: '100%', height: '700px', nodes : nodes, connectors: connectors,
     rulerSettings: {
         showRulers: true
     },
-    snapSettings: {
-        horizontalGridlines: {
-            lineIntervals: [1, 9, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75],
-            lineColor: '#EEEEEE'
+    pageSettings:{
+        orientation: 'Landscape',
+        showPageBreaks: true,
+        background: {
+            color: 'white'
         },
-        verticalGridlines: {
-            lineIntervals: [1, 9, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75, 0.25, 9.75],
-            lineColor: '#EEEEEE'
-        },
-        constraints: (ej.diagrams.SnapConstraints.All & ~ej.diagrams.SnapConstraints.SnapToLines)
+        multiplePage:true,
+        width: 816,
+        height: 1056,
+        margin: { left: 5, top: 5 }
     },
-    pageSettings: {
-        background: { color: 'white' }, width: 816, height: 1056, multiplePage: true, margin: { left: 5, top: 5 },
-        orientation: 'Landscape'
+    scrollSettings:{
+        canAutoScroll: true,
+        minZoom: 0.25,
+        maxZoom: 30,
     },
     contextMenuSettings: {
-        show: true,
-        showCustomMenuOnly: false,
-    },
-    scrollSettings: { canAutoScroll: true, scrollLimit: 'Infinity', minZoom: 0.25, maxZoom: 30 },
-    selectedItems: { constraints: ej.diagrams.SelectorConstraints.All & ~ej.diagrams.SelectorConstraints.ToolTip },
-    getNodeDefaults: function (node, diagram) {
-        if (node.style) {
-            if (node.style.fill === 'transparent' && !node.children) {
-                node.style.fill = 'white';
-            }
-        }
-        var node1 = {
-            style: { strokeWidth: 2 }
-        };
-        return node1;
-    },
-    getConnectorDefaults: function (connector, diagram) {
-        var connector1 = {
-            annotations: [
-                { content: '', style: { fill: 'transparent' } }
-            ],
-            style: { strokeWidth: 2 }
-        };
-        return connector1;
-    },
-    backgroundColor: 'transparent',
-});
-diagram.appendTo('#diagram');
-diagram.fitToPage({ mode: 'Page', region: 'Content', margin: { left: 0, top: 0, right: 0, bottom: 0 } });
+      show: true,
+      showCustomMenuOnly: false,
+  }, 
+  selectionChange:selectionChange,
+  // click:focus 
+    }, '#diagram');
 var doors = [
     { id: 'door1', shape: { type: 'Path', data: 'M1 1H49V4.05882H1V1ZM49 4.05882C49 31.0829 27.5043 53 0.999999 53V4.05882' }},
     { id: 'door2', shape: { type: 'Path', data: 'M49 1H1V4.05882H49V1Z M1 4.05882C1 31.0829 22.4957 53 49 53V4.05882' }}   
@@ -1003,3 +772,649 @@ var palette = new ej.diagrams.SymbolPalette({
 });
 palette.appendTo('#symbolpalette');
 
+function focus(){
+  document.getElementById('menu').focus();
+}
+function selectionChange()
+{
+  
+}
+var exportItems = [{ text :'PNG'} , {text : 'SVG'}, { text: 'BMP'} , { text : 'JPG'}]
+var btnObj = new ej.splitbuttons.DropDownButton({
+  items: exportItems, iconCss: 'e-ddb-icons e-export', content: 'Export', select: onselect,
+});
+//Export the diagraming object based on the format.
+function onselect(args) {
+  var exportOptions = {};
+  exportOptions.format = args.item.text;
+  exportOptions.mode = 'Download';
+  exportOptions.region = 'PageSettings';
+  // exportOptions.multiplePage = checkBoxObj.checked;
+  exportOptions.fileName = 'Export';
+  exportOptions.margin = { left: 0, top: 0, bottom: 0, right: 0 };
+  diagram.exportDiagram(exportOptions);
+}
+//click event to perform printing the diagraming objects.
+function print(args) {
+  
+      var printOptions = {};
+      printOptions.mode = 'Data';
+      printOptions.region = 'PageSettings';
+      // printOptions.multiplePage = checkBoxObj.checked;
+      printOptions.margin = { left: 0, top: 0, bottom: 0, right: 0 };
+      diagram.print(printOptions);
+  
+}
+//save the diagram object in json data.
+function download(data) {
+  if (window.navigator.msSaveBlob) {
+      var blob = new Blob([data], { type: 'data:text/json;charset=utf-8,' });
+      window.navigator.msSaveOrOpenBlob(blob, 'Diagram.json');
+  }
+  else {
+      var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(data);
+      var a = document.createElement('a');
+      a.href = dataStr;
+      a.download = 'Diagram.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+  }
+}
+
+var uploadObj = new ej.inputs.Uploader({
+  asyncSettings: {
+      saveUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Save',
+      removeUrl: 'https://aspnetmvc.syncfusion.com/services/api/uploadbox/Remove'
+  },
+  success: onUploadSuccess,
+  showFileList:false
+});
+uploadObj.appendTo('#fileupload');
+function onUploadSuccess(args) {
+  var file1 = args.file;
+  var file = file1.rawFile;
+  var reader = new FileReader();
+  reader.readAsText(file);
+  reader.onloadend = loadDiagram;
+}
+//Load the diagraming object.
+function loadDiagram(event) {
+  diagram.loadDiagram(event.target.result);
+}
+
+var forwardbackwarditems=[
+  { iconCss: 'sf-icon-BringForward', tooltipText: 'Bring Forward',text:'Bring Forward' },
+  { iconCss: 'sf-icon-SendBackward', tooltipText: 'Send Backward' ,text:'Send Backward'}
+ 
+]
+var forwardbackward = new ej.splitbuttons.DropDownButton({
+  items: forwardbackwarditems , iconCss: 'sf-icon-Order',select:toolbarEditorClick
+ })
+
+ var alignmentItems =[
+  { iconCss: 'sf-icon-AlignLeft', text: 'AlignLeft' },
+  { iconCss: 'sf-icon-AlignRight', text: 'AlignRight' },
+  { iconCss: 'sf-icon-AlignHorizontally', text: 'AlignCenter' },
+  { iconCss: 'e-icons e-justify', text: 'AlignJustify'},
+  { iconCss: 'sf-icon-AilgnTop' , text: 'AlignTop'},
+  { iconCss: 'sf-icon-AlignVertically', text: 'AlignMiddle'},
+  { iconCss: 'sf-icon-AlignBottom', text: 'AlignBottom'},
+]
+var alignmentbtn = new ej.splitbuttons.DropDownButton({
+  items: alignmentItems , iconCss: 'sf-icon-AlignLeft'
+ });
+ 
+ var flipItems = [
+   { tooltipText : 'Horizontal Flip', text:'Flip Horizontal'},
+   { tooltipText : 'Vertical Flip',text:'Flip Vertical'}
+  ]
+var flipbtn = new ej.splitbuttons.DropDownButton({
+  items: flipItems ,select:toolbarEditorClick,content:'Flip'
+});
+var groupItems=[
+  { iconCss: 'sf-icon-Group tb-icons', text: 'Group', cssClass: 'tb-item-start tb-item-align-category' },
+  { iconCss: 'sf-icon-Ungroup tb-icons', text: 'Ungroup', cssClass: 'tb-item-end tb-item-ungroup'}
+]
+var grpbtn = new ej.splitbuttons.DropDownButton({
+ items: groupItems,iconCss: 'sf-icon-Group tb-icons'
+});
+
+//FontType Collection
+var fontType = [
+  { type: 'Arial', text: 'Arial' },
+  { type: 'Aharoni', text: 'Aharoni' },
+  { type: 'Bell MT', text: 'Bell MT' },
+  { type: 'Fantasy', text: 'Fantasy' },
+  { type: 'Times New Roman', text: 'Times New Roman' },
+  { type: 'Segoe UI', text: 'Segoe UI' },
+  { type: 'Verdana', text: 'Verdana' },
+  { type: 'Calibiri', text: 'Calibiri' },
+];
+//DropDownList used to apply for fontFamily of the Annotation
+var fontFamily = new ej.dropdowns.DropDownList({
+  dataSource: fontType,
+  fields: { value: 'type', text: 'text' },placeholder: 'select a font type',width:"100%",
+  change: function () {
+    updateAnnotation('fontfamily', null, fontFamily);
+  }
+});
+
+//NumericTextBox used to apply for Fontsize of the Annotation
+var fontSize = new ej.inputs.NumericTextBox({
+  value: 0, min: 1,
+  max: 25,
+  format: '##.##',
+  step: 1,
+  change: function () { updateAnnotation('fontsize', fontSize); }
+});
+ 
+var connectortypes =[
+  { tooltipText: 'Straight', text: 'Straight',iconCss:'sf-icon-StraightLine' },
+  { tooltipText: 'Orthogonal', text: 'Orthogonal' ,iconCss:'sf-icon-ConnectorMode'},
+  { tooltipText: 'Bezier', text: 'Bezier',iconCss:'sf-icon-BeizerLine' },
+]
+var connectortype = new ej.splitbuttons.DropDownButton({
+  items: connectortypes,iconCss: 'sf-icon-ConnectorMode',select:toolbarEditorClick
+ })
+
+//Colorpicker used to apply for Color of the Annotation
+var fontColor = new ej.inputs.ColorPicker({
+  value: '#000', change: function (arg) {
+      for (var i = 0; i < diagram.selectedItems.nodes.length; i++) {
+          var node = diagram.selectedItems.nodes[i];
+          for (var j = 0; j < node.annotations.length; j++) {
+              node.annotations[j].style.color = arg.currentValue.rgba;
+              diagram.dataBind();
+          }
+      }
+  }
+});
+fontColor.appendTo('#fontcolor');
+
+var zoomMenuItems = [
+  { text: '400%' }, { text: '300%' }, { text: '200%' }, { text: '150%' },
+  { text: '100%' }, { text: '75%' }, { text: '50%' }, { text: '25%' }, { separator: true },
+  { text: 'Fit To Screen' }
+ 
+];
+var btnZoomIncrement = new ej.splitbuttons.DropDownButton({ items:zoomMenuItems, content:Math.round(diagram.scrollSettings.currentZoom*100)+'%',select: zoomChange });
+   
+
+var toolbarObj = new ej.navigations.Toolbar({
+    overflowMode: 'Scrollable',
+    clicked: toolbarEditorClick,
+    items: [
+     {
+         prefixIcon: 'sf-icon-Save', tooltipText: 'Save As' },
+     {
+      prefixIcon: 'sf-icon-Save', tooltipText: 'Open',template:'<input type="file" id="fileupload" name="UploadFiles">'  },
+     {
+         prefixIcon: 'sf-icon-Print', tooltipText: 'Print' },
+     {
+      type: 'Input', text: 'Export',prefixIcon:'sf-icon-Export', template: '<button id="custombtn"></button>'},
+     {
+      type: 'Separator' },
+     {
+          prefixIcon: 'sf-icon-ZoomOut tb-icons', tooltipText: 'Zoom Out(Ctrl + -)', cssClass: 'tb-item-start'
+      },
+      {
+          cssClass: 'tb-item-end tb-zoom-dropdown-btn', template: '<button id="btnZoomIncrement"></button>'
+      },
+      {
+          prefixIcon: 'sf-icon-ZoomIn tb-icons', tooltipText: 'Zoom In(Ctrl + +)', cssClass: 'tb-item-end'
+      },
+      {
+          type: 'Separator'
+      },
+     {
+         prefixIcon: 'e-icons e-cut', tooltipText: 'Cut' },
+     {
+         prefixIcon: 'e-icons e-copy', tooltipText: 'Copy' },
+     {
+         prefixIcon: 'e-icons e-paste', tooltipText: 'Paste' },
+     {
+         type: 'Separator' },
+     {
+         prefixIcon: 'e-icons e-undo', tooltipText: 'Undo' },
+     {
+         prefixIcon: 'e-icons e-redo', tooltipText: 'Redo' },
+    {
+         type: 'Separator' },
+    {
+        type: 'Input', tooltipText: 'FontFamily', template: '<button id="fontFamily"></button>'},
+    {
+        type: 'Input', tooltipText: 'FontSize', template: '<input type="text" id="fontSize" >'},
+     {
+         prefixIcon: 'e-icons e-bold', tooltipText: 'Bold', },
+     {
+         prefixIcon: 'e-icons e-underline', tooltipText: 'Underline'   },
+     {
+         prefixIcon: 'e-icons e-italic', tooltipText: 'Italic' },
+     {
+         prefixIcon: 'e-icons e-font-color', tooltipText: 'Font color' , template: '<input id="fontcolor" type="color">' },
+     {
+         type: 'Separator' },
+        {
+         text:'Connect Tool', template: '<button id="connectortype"></button>' },
+     {
+      prefixIcon: 'sf-icon-TextInput tb-icons', tooltipText: 'Text Tool', cssClass: 'tb-item-end tb-custom-diagram-disable' },
+     {
+         type: 'Separator' },
+    {
+      prefixIcon: 'sf-icon-ColorPickers tb-icons', mode: 'Palette', tooltipText: 'Fill Color', cssClass: 'tb-item-start tb-item-fill'},
+     {
+      prefixIcon: 'sf-icon-Pickers tb-icons', mode: 'Palette', tooltipText: 'Stroke-Color', cssClass: 'tb-item-end tb-item-stroke' },
+     {
+         type: 'Separator' },
+     
+     {
+      prefixIcon: 'sf-icon-Selector tb-icons', cssClass: 'tb-item-middle tb-item-selected', tooltipText: 'Select Tool'  },
+     {
+      prefixIcon: 'sf-icon-Pan tb-icons', tooltipText: 'Pan Tool', cssClass: 'tb-item-start' }, 
+    {
+        type: 'Separator' },
+    {
+        template: '<button id="forwardbackward" style="width:100%;"></button>'},
+    {
+        type: 'Separator' }, 
+    
+    // {
+    //     prefixIcon: 'e-icons e-pan-tool', tooltipText: 'Align Left', template: '<button id="alignmentbtn" style="width:100%;"></button>' },
+    {
+       type: 'Separator' }, 
+   {
+         template: '<button id="flipbtn" style="width:100%;"></button>' },
+   {
+        type: 'Separator' },
+  {
+    tooltipText:'Group',template: '<button id="grpbtn" style="width:100%;"></button>' },
+     ]
+});
+//Render initialized Toolbar component
+toolbarObj.appendTo('#toolbar_default');
+btnObj.appendTo('#custombtn');
+forwardbackward.appendTo('#forwardbackward');
+alignmentbtn.appendTo('#alignmentbtn');
+flipbtn.appendTo('#flipbtn');
+grpbtn.appendTo('#grpbtn');
+fontFamily.appendTo('#fontFamily');
+btnZoomIncrement.appendTo('#btnZoomIncrement');
+fontSize.appendTo('#fontSize');
+connectortype.appendTo('#connectortype');
+fontSize.dataBind();
+
+
+// Menu items definition 
+var menuItems = [
+    {
+        text: 'File',
+        items:[
+          { text : 'New', iconCss:'e-ddb-icons e-new'},
+          { text : 'Open'},
+          { text : 'SaveAs', iconCss:'sf-icon-Save'},
+          { text : 'Export', iconCss:'sf-icon-Export',items:[{ text: 'JPG', value: 'JPG' }, { text: 'PNG', value: 'PNG' },
+                                                             { text: 'BMP', value: 'BMP' }, { text: 'SVG', value: 'SVG' }]},
+          { text : 'Print' ,iconCss:'sf-icon-Print'},
+        ]
+    },
+    {
+        text: 'Edit',items:[{ text : 'undo', iconCss:'sf-icon-Undo'},
+                           { text : 'redo', iconCss:'sf-icon-Redo'},
+                           { text : 'copy', iconCss:'sf-icon-Copy'},
+                           { text : 'cut', iconCss:'sf-icon-Cut'},
+                           { text : 'paste', iconCss:'sf-icon-Paste'},
+                           { text: 'Delete', iconCss: 'sf-icon-Delete'},
+                          ]
+    },
+    {
+        text: 'Insert',
+        items: [
+          { text: 'Insert Picture', iconCss:'sf-icon-InsertImage tb-icons'},
+          { text: 'Insert Link', iconCss: 'sf-icon-InsertLink tb-icons'},
+      ]
+    },
+    {
+        text: 'Design',
+        items: [
+          { text: 'Orientation', items:[{ text : 'Landscape'},{text : 'Portrait'}]},
+          { text: 'Page Size' , items:[
+                                    { text : 'Letter'},
+                                    {text : 'Tabloid'},
+                                    {text : 'Legal'},
+                                    {text : 'A3'},
+                                    {text : 'A4'},
+                                    {text : 'A5'},
+                                    {text : 'A6'}
+                                  
+                                  ]},
+          { text: 'Background'},
+      ]
+        
+    },
+    {
+        text: 'View',
+        items:[
+        { text: 'Fit To Screen' },{ text: 'Fit To Width' }, { separator: true },
+        { text: 'Show Rulers' ,iconCss: 'sf-icon-Selection'}, { text: 'Show Guides', iconCss: 'sf-icon-Selection' },
+        { text: 'Show Grid', iconCss: 'sf-icon-Selection' }, { separator: true },
+        { text: 'Snap To Grid' },{ text: 'Page Breaks' }]
+    },
+  
+  
+];
+//Menu initialization
+var menuObj  = new ej.navigations.Menu({ items: menuItems ,select : menuclick}, '#menu');
+
+
+
+function menuclick(args){
+  var command  = args.item.text.replace(/[' ']/g, '').toLowerCase();
+  switch(command){
+    case 'new':
+            diagram.clear();
+            break;
+    case 'saveas':
+            download();
+            break;
+    case 'jpg':
+    case 'png':
+    case 'bmp':
+    case 'svg':
+            onselect(args);          
+            break;
+    case 'print':
+            print() ;
+            break;
+    case 'undo':
+            diagram.undo();
+            break;
+    case 'redo':
+            diagram.redo();
+            break;
+    case 'cut':
+            diagram.cut();
+            break;
+    case 'copy':
+            diagram.copy();
+            break;
+    case 'paste':
+            diagram.paste();
+            break;
+    case 'delete':
+            diagram.remove();
+            break;
+    case 'insertpicture':
+
+            break;
+    case 'showguides':
+            diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ ej.diagrams.SnapConstraints.SnapToObject;
+            args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
+            break;
+    case 'showgrid':
+            diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ ej.diagrams.SnapConstraints.ShowLines;
+            args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
+            break;
+    case 'snaptogrid':
+            diagram.snapSettings.constraints = diagram.snapSettings.constraints ^ ej.diagrams.SnapConstraints.SnapToLines;
+            args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
+            break;
+    case 'fittoscreen':
+            diagram.fitToPage({ mode: 'Page', region: 'Content', margin: { left: 0, top: 0, right: 0, bottom: 0 } });
+            break;
+    case 'fittowidth':
+            diagram.fitToPage({ mode: 'Width', region: 'Content', margin: { left: 0, top: 0, right: 0, bottom: 0 } });
+            break;
+    case 'showrulers':
+            diagram.rulerSettings.showRulers = !diagram.rulerSettings.showRulers;
+            break;
+    case 'pagebreaks':
+          args.item.iconCss = args.item.iconCss ? '' : 'sf-icon-Selection';
+          if(args.item.iconCss){
+            diagram.pageSettings.showPageBreaks = true;
+          }
+          else{
+            diagram.pageSettings.showPageBreaks = false;
+          }
+    case 'portrait':
+          diagram.pageSettings.orientation = 'Portrait';
+          break;
+    case 'landscape':
+          diagram.pageSettings.orientation ='Landscape';
+          break;
+    case 'letter':
+    case 'tabloid':
+    case 'legal':
+    case 'A4':
+    case 'A3':
+    case 'A5':
+    case 'A6':
+          paperListChange(args)
+          break;
+  }
+}
+
+
+function toolbarEditorClick(args) {
+  var commandType = args.item.tooltipText.replace(/[' ']/g, '').toLowerCase();
+    switch (commandType) {
+        case 'undo':
+            diagram.undo();
+            break;
+        case 'redo':
+            diagram.redo();
+            break;
+        case 'open':
+            document.getElementsByClassName('e-file-select-wrap')[0].querySelector('button').click();
+            break;
+        case 'zoomin(ctrl++)':
+            diagram.zoomTo({ type: 'ZoomIn', zoomFactor: 0.2 });
+            zoomCurrentValue.content = diagram.scrollSettings.currentZoom = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
+            break;
+        case 'zoomout(ctrl+-)':
+            diagram.zoomTo({ type: 'ZoomOut', zoomFactor: 0.2 });
+            zoomCurrentValue.content = diagram.scrollSettings.currentZoom = (diagram.scrollSettings.currentZoom * 100).toFixed() + '%';
+            break;
+        case 'cut':
+            diagram.cut();
+            break;
+        case 'copy':
+            diagram.copy();
+            break;
+        case 'paste':
+            diagram.paste();
+            break;
+        case 'print':
+            print() ;
+            break;
+        case 'saveas':
+            download();
+            break;
+        case 'bringforward':
+            diagram.moveForward();
+            break;
+        case 'sendbackward':
+            diagram.sendBackward();
+            break;
+        case 'pantool':
+            diagram.tool =  ej.diagrams.DiagramTools.ZoomPan;
+            break;
+        case 'selecttool':
+            diagram.tool =  ej.diagrams.DiagramTools.Default;
+            break;
+        case 'group':
+            diagram.group();
+            break;
+        case 'ungroup':
+            diagram.unGroup();
+            break; 
+        case 'bold':
+              updateAnnotation('bold');
+              break;
+        case 'underline':
+              updateAnnotation('underline');
+              break;
+        case 'italic':
+              updateAnnotation('italic'); 
+              break;
+        case 'alignleft':
+        case 'alignright':
+        case 'aligntop':
+        case 'alignbottom':
+        case 'alignmiddle':
+        case 'aligncenter':
+              var alignType = commandType.replace('align', '');
+              var alignType1 = alignType.charAt(0).toUpperCase() + alignType.slice(1);
+              diagram.align(alignType1);
+              break;
+        case 'horizontalflip':
+              diagram.selectedItems.nodes[0].flip  = 'Horizontal'     
+              break;
+        case 'verticalflip':
+              diagram.selectedItems.nodes[0].flip ='Vertical'
+        case 'texttool' : 
+              diagram.drawingObject = { shape: { type: 'Text' }, style: { strokeColor: 'none', fill: 'none' } };
+              diagram.tool = ej.diagrams.DiagramTools.ContinuousDraw;
+              break;
+        case 'straight' : 
+              diagram.drawingObject = { type: 'Straight' } ;
+              diagram.tool = ej.diagrams.DiagramTools.ContinuousDraw;
+              break;
+        case 'orthogonal' : 
+              diagram.drawingObject = { type: 'Orthogonal' } ;
+              diagram.tool = ej.diagrams.DiagramTools.ContinuousDraw;
+              break;
+        case 'bezier' : 
+              diagram.drawingObject = { type: 'Bezier' } ;
+              diagram.tool = ej.diagrams.DiagramTools.ContinuousDraw;
+              break;
+   }
+}
+
+function updateAnnotation(value, fontSize, fontFamily) {
+  for (var i = 0; i < diagram.selectedItems.nodes.length; i++) {
+      var node = diagram.selectedItems.nodes[i];
+      for (var j = 0; j < node.annotations.length; j++) {
+          var annotationStyle = node.annotations[j].style;
+          if (value === 'fontsize') {
+              annotationStyle.fontSize = fontSize.value;
+          } else if (value === 'underline') {
+              annotationStyle.textDecoration = 'Underline';
+          } else if (value === 'fontfamily') {
+              annotationStyle.fontFamily = fontFamily.value.toString();
+          } else if (value === 'bold') {
+              annotationStyle.bold = true;
+          } else if (value === 'italic') {
+              annotationStyle.italic = true;
+          } 
+          diagram.dataBind();
+      }
+  }
+}
+
+function paperListChange (args) {
+      var value = args.item.text;
+      var paperSize = getPaperSize(value);
+      var pageWidth = paperSize.pageWidth;
+      var pageHeight = paperSize.pageHeight;
+      if (pageWidth && pageHeight) {
+          if (diagram.pageSettings.orientation = 'Portrait') {
+              if (pageWidth > pageHeight) {
+                  var temp = pageWidth;
+                  pageWidth = pageHeight;
+                  pageHeight = temp;
+              }
+          }
+          else {
+              if (pageHeight > pageWidth) {
+                  var temp = pageHeight;
+                  pageHeight = pageWidth;
+                  pageWidth = temp;
+              }
+          }
+          diagram.pageSettings.width = pageWidth;
+          diagram.pageSettings.height = pageHeight;
+          diagram.dataBind();
+      }
+};
+var PaperSize = (function () {
+  function PaperSize() {
+  }
+  return PaperSize;
+}());
+function getPaperSize(args)
+{
+  var paperSize = new PaperSize();
+        switch (args) {
+            case 'Letter':
+                paperSize.pageWidth = 816;
+                paperSize.pageHeight = 1056;
+                break;
+            case 'Legal':
+                paperSize.pageWidth = 816;
+                paperSize.pageHeight = 1344;
+                break;
+            case 'Tabloid':
+                paperSize.pageWidth = 1056;
+                paperSize.pageHeight = 1632;
+                break;
+            case 'A3':
+                paperSize.pageWidth = 1122;
+                paperSize.pageHeight = 1587;
+                break;
+            case 'A4':
+                paperSize.pageWidth = 793;
+                paperSize.pageHeight = 1122;
+                break;
+            case 'A5':
+                paperSize.pageWidth = 559;
+                paperSize.pageHeight = 793;
+                break;
+            case 'A6':
+                paperSize.pageWidth = 396;
+                paperSize.pageHeight = 559;
+                break;
+        }
+        return paperSize;
+    };
+
+    function zoomChange(args) {
+      zoomCurrentValue = document.getElementById("btnZoomIncrement").ej2_instances[0];
+      if (args.item.text === 'Custom') {
+          var ss = '';
+      } else if (args.item.text === 'Fit To Screen') {
+          zoomCurrentValue.content = selectedItem.scrollSettings.currentZoom = 'Fit ...';
+          diagram.fitToPage({ mode: 'Page', region: 'Content', margin: { left: 0, top: 0, right: 0, bottom: 0 } });
+      } else {
+          var currentZoom = diagram.scrollSettings.currentZoom;
+          var zoom = {};
+          switch (args.item.text) {
+              case '400%':
+                  zoom.zoomFactor = (4 / currentZoom) - 1;
+                  break;
+              case '300%':
+                  zoom.zoomFactor = (3 / currentZoom) - 1;
+                  break;
+              case '200%':
+                  zoom.zoomFactor = (2 / currentZoom) - 1;
+                  break;
+              case '150%':
+                  zoom.zoomFactor = (1.5 / currentZoom) - 1;
+                  break;
+              case '100%':
+                  zoom.zoomFactor = (1 / currentZoom) - 1;
+                  break;
+              case '75%':
+                  zoom.zoomFactor = (0.75 / currentZoom) - 1;
+                  break;
+              case '50%':
+                  zoom.zoomFactor = (0.5 / currentZoom) - 1;
+                  break;
+              case '25%':
+                  zoom.zoomFactor = (0.25 / currentZoom) - 1;
+                  break;
+          }
+          zoomCurrentValue.content = diagram.scrollSettings.currentZoom = args.item.text;
+          diagram.zoomTo(zoom);
+      }
+  }
