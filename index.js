@@ -873,11 +873,11 @@ var flipbtn = new ej.splitbuttons.DropDownButton({
   items: flipItems ,select:toolbarEditorClick,content:'Flip'
 });
 var groupItems=[
-  { iconCss: 'sf-icon-Group tb-icons', text: 'Group', cssClass: 'tb-item-start tb-item-align-category' },
-  { iconCss: 'sf-icon-Ungroup tb-icons', text: 'Ungroup', cssClass: 'tb-item-end tb-item-ungroup'}
+  { iconCss: 'sf-icon-Group tb-icons', tooltipText: 'Group',text: 'Group' },
+  { iconCss: 'sf-icon-Ungroup tb-icons', tooltipText: 'Ungroup', text: 'Ungroup'}
 ]
 var grpbtn = new ej.splitbuttons.DropDownButton({
- items: groupItems,iconCss: 'sf-icon-Group tb-icons'
+ items: groupItems,iconCss: 'sf-icon-Group tb-icons',select:toolbarEditorClick,
 });
 
 //FontType Collection
@@ -931,7 +931,21 @@ var fontColor = new ej.inputs.ColorPicker({
   }
 });
 fontColor.appendTo('#fontcolor');
-
+function dialogpopup(){
+var dialog = new ej.popups.Dialog({
+  width: "300px",
+  visible: true,
+  isModal: true,
+  showCloseIcon: true,
+  buttons: [
+    {
+      // click: dlgButtonClick,
+      buttonModel: { content: "Update", isPrimary: true }
+    }
+  ]
+});
+dialog.appendTo("#editDialog");
+}
 var zoomMenuItems = [
   { text: '400%' }, { text: '300%' }, { text: '200%' }, { text: '150%' },
   { text: '100%' }, { text: '75%' }, { text: '50%' }, { text: '25%' }, { separator: true },
@@ -1028,7 +1042,7 @@ var toolbarObj = new ej.navigations.Toolbar({
    {
         type: 'Separator' },
   {
-    tooltipText:'Group',template: '<button id="grpbtn" style="width:100%;"></button>' },
+    text:'Group',template: '<button id="grpbtn" style="width:100%;"></button>' },
      ]
 });
 //Render initialized Toolbar component
@@ -1105,8 +1119,6 @@ var menuItems = [
 ];
 //Menu initialization
 var menuObj  = new ej.navigations.Menu({ items: menuItems ,select : menuclick}, '#menu');
-
-
 
 function menuclick(args){
   var command  = args.item.text.replace(/[' ']/g, '').toLowerCase();
@@ -1191,6 +1203,11 @@ function menuclick(args){
     case 'A6':
           paperListChange(args)
           break;
+    case 'insertpicture':
+        document.getElementsByClassName('e-file-select-wrap')[0].querySelector('button').click();
+        break;
+    case 'insertlink':
+          dialogpopup();
   }
 }
 
@@ -1231,10 +1248,10 @@ function toolbarEditorClick(args) {
             download();
             break;
         case 'bringforward':
-            diagram.moveForward();
+          diagram.bringToFront();
             break;
         case 'sendbackward':
-            diagram.sendBackward();
+            diagram.sendToBack();
             break;
         case 'pantool':
             diagram.tool =  ej.diagrams.DiagramTools.ZoomPan;
