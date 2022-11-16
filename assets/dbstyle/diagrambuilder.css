@@ -158,7 +158,7 @@ input, button, select, textarea {
 }
 
 .sidebar.show-overview .db-palette-parent {
-    height:calc(100% - 228px);
+    height:calc(100%);
 }
 
 .db-palette-more-shapes {
