@@ -1,8 +1,8 @@
 <!DOCTYPE html>
     <head>
         <script src="https://cdn.syncfusion.com/ej2/20.3.47/dist/ej2.min.js" type="text/javascript"></script>
-      
-        <link href="https://cdn.syncfusion.com/ej2/20.3.47/material.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/fluent.css" rel="stylesheet">
+        <!-- <link href="https://cdn.syncfusion.com/ej2/20.3.47/material.css" rel="stylesheet"> -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-base/styles/material.css" rel="stylesheet">
         <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-buttons/styles/material.css" rel="stylesheet">
@@ -16,20 +16,32 @@
         
     </head>
     <body>
+       
         <style>.e-file-select-wrap {
             display: none;
         }
-        #arrangeContextMenu{
+        #designContextMenu{
             width: 50px;
         }
         </style>
+         <!-- <div class="sb-content-overlay">
+            <div class="sb-loading">
+                <svg class="circular" height="40" width="40">
+                    <circle class="loadingPath" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"></circle>
+                </svg>
+            </div>
+        </div>
+        <div id="content-area" style="height: 100%">
+        </div> -->
      <input type="file" id="fileupload" name="UploadFiles">
-     <ul id = "arrangeContextMenu" style=""></ul>
+     <ul id = "designContextMenu"></ul>
     <div class='diagrambuilder-container' >
         <div class='header navbar'>
             <div class="db-header-container">
                 <div class="db-diagram-name-container">
-                    <span id='diagramName' style="width:250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="db-diagram-name">Untitled Diagram</span>
+                    <span id='diagramName' style="width:250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="db-diagram-name" onclick="renameDiagram(event)">Untitled Diagram</span>
+                    <input id='diagramEditable' type="text" class="db-diagram-name" onkeydown="diagramNameKeyDown(event)" onfocusout= "diagramNameChange(event)"/>
+                    <span id='diagramreport' class="db-diagram-name db-save-text"></span>
                 </div>
                 <div class='db-menu-container'>
                     <div class="db-menu-style">
