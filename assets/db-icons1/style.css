@@ -9,8 +9,8 @@ font-weight: normal;
 font-style: normal;
 }
 
-[class^="sf-icon-"], [class*=" sf-icon-"] {
- font-family: 'Final diagram icons copy' ,'Free_hand' !important;
+/* [class^="sf-icon-"], [class*=" sf-icon-"] {
+ font-family: 'Final diagram icons copy' ,'Free_hand', 'Diagram_Builder_Icon'!important;
 speak: none;
 font-size: 55px;
 font-style: normal;
@@ -20,7 +20,7 @@ text-transform: none;
 line-height: 1;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
-}
+} */
 @font-face {
     font-family: 'e-ddb-icons2';
     src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMj1tSfIAAAEoAAAAVmNtYXDnEOdVAAABiAAAADZnbHlmdC1P4gAAAcgAAAAwaGVhZBJhohMAAADQAAAANmhoZWEIVQQDAAAArAAAACRobXR4CAAAAAAAAYAAAAAIbG9jYQAYAAAAAAHAAAAABm1heHABDgAUAAABCAAAACBuYW1lm+wy9gAAAfgAAAK1cG9zdLnsYngAAASwAAAAMAABAAAEAAAAAFwEAAAAAAAD+AABAAAAAAAAAAAAAAAAAAAAAgABAAAAAQAAgNcenF8PPPUACwQAAAAAANelrs4AAAAA16WuzgAAAAAD+AN6AAAACAACAAAAAAAAAAEAAAACAAgAAgAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA5wDnAAQAAAAAXAQAAAAAAAABAAAAAAAABAAAAAQAAAAAAAACAAAAAwAAABQAAwABAAAAFAAEACIAAAAEAAQAAQAA5wD//wAA5wD//wAAAAEABAAAAAEAAAAAAAAAGAAAAAIAAAAAA/gDegACAAcAACUhCQEhATUhAQQC9P6G/YoBMQFF/YqGAjf+hgH0QwAAAAAAEgDeAAEAAAAAAAAAAQAAAAEAAAAAAAEAEwABAAEAAAAAAAIABwAUAAEAAAAAAAMAEwAbAAEAAAAAAAQAEwAuAAEAAAAAAAUACwBBAAEAAAAAAAYAEwBMAAEAAAAAAAoALABfAAEAAAAAAAsAEgCLAAMAAQQJAAAAAgCdAAMAAQQJAAEAJgCfAAMAAQQJAAIADgDFAAMAAQQJAAMAJgDTAAMAAQQJAAQAJgD5AAMAAQQJAAUAFgEfAAMAAQQJAAYAJgE1AAMAAQQJAAoAWAFbAAMAAQQJAAsAJAGzIERpYWdyYW1fU2hhcGVzX0ZPTlRSZWd1bGFyRGlhZ3JhbV9TaGFwZXNfRk9OVERpYWdyYW1fU2hhcGVzX0ZPTlRWZXJzaW9uIDEuMERpYWdyYW1fU2hhcGVzX0ZPTlRGb250IGdlbmVyYXRlZCB1c2luZyBTeW5jZnVzaW9uIE1ldHJvIFN0dWRpb3d3dy5zeW5jZnVzaW9uLmNvbQAgAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQAUgBlAGcAdQBsAGEAcgBEAGkAYQBnAHIAYQBtAF8AUwBoAGEAcABlAHMAXwBGAE8ATgBUAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQAVgBlAHIAcwBpAG8AbgAgADEALgAwAEQAaQBhAGcAcgBhAG0AXwBTAGgAYQBwAGUAcwBfAEYATwBOAFQARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAdQBzAGkAbgBnACAAUwB5AG4AYwBmAHUAcwBpAG8AbgAgAE0AZQB0AHIAbwAgAFMAdAB1AGQAaQBvAHcAdwB3AC4AcwB5AG4AYwBmAHUAcwBpAG8AbgAuAGMAbwBtAAAAAAIAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgECAQMABlNoYXBlcwAA) format('truetype');
@@ -34,6 +34,86 @@ line-height: 1;
     font-weight: normal;
     font-style: normal;
     }
+    @font-face {
+        font-family: 'Diagram_Builder_Icon';
+        src:
+        url('Fonts/Diagram_Builder_Icon.ttf') format('truetype'),
+        url('Fonts/Diagram_Builder_Icon.woff') format('woff'),
+        url('Fonts/Diagram_Builder_Icon.eot') format('eot'),
+        url('Fonts/Diagram_Builder_Icon.svg?#Diagram_Builder_Icon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+        }
+        
+        [class^="sf-icon-"], [class*=" sf-icon-"] {
+         font-family: 'Diagram_Builder_Icon' !important;
+        speak: none;
+        font-size: 55px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .sf-icon-new:before { content: "\e700"; }
+        .sf-icon-open:before { content: "\e701"; }
+        .sf-icon-save:before { content: "\e702"; }
+        .sf-icon-save-as:before { content: "\e703"; }
+        .sf-icon-export:before { content: "\e704"; }
+        .sf-icon-print:before { content: "\e705"; }
+        .sf-icon-undo:before { content: "\e706"; }
+        .sf-icon-redo:before { content: "\e707"; }
+        .sf-icon-cut:before { content: "\e708"; }
+        .sf-icon-copy:before { content: "\e709"; }
+        .sf-icon-paste:before { content: "\e70a"; }
+        .sf-icon-delete:before { content: "\e70b"; }
+        .sf-icon-zoom-in:before { content: "\e70c"; }
+        .sf-icon-zoom-out:before { content: "\e70d"; }
+        .sf-icon-layers:before { content: "\e70e"; }
+        .sf-icon-send-to-back:before { content: "\e70f"; }
+        .sf-icon-bring-to-front:before { content: "\e710"; }
+        .sf-icon-send-backward:before { content: "\e711"; }
+        .sf-icon-bring-forward:before { content: "\e712"; }
+        .sf-icon-pan:before { content: "\e713"; }
+        .sf-icon-pointer:before { content: "\e714"; }
+        .sf-icon-draw_shapes:before { content: "\e715"; }
+        .sf-icon-rectangle:before { content: "\e716"; }
+        .sf-icon-elipse:before { content: "\e717"; }
+        .sf-icon-polygon:before { content: "\e718"; }
+        .sf-icon-straight_line:before { content: "\e719"; }
+        .sf-icon-orthogonal_line:before { content: "\e71a"; }
+        .sf-icon-bezier:before { content: "\e71b"; }
+        .sf-icon-free_hand:before { content: "\e71c"; }
+        .sf-icon-fil_colour:before { content: "\e71d"; }
+        .sf-icon-border_colour:before { content: "\e71e"; }
+        .sf-icon-group:before { content: "\e71f"; }
+        .sf-icon-ungroup:before { content: "\e720"; }
+        .sf-icon-rotate:before { content: "\e721"; }
+        .sf-icon-insert_link:before { content: "\e722"; }
+        .sf-icon-insert_image:before { content: "\e723"; }
+        .sf-icon-align_left:before { content: "\e724"; }
+        .sf-icon-align_center:before { content: "\e725"; }
+        .sf-icon-align_right:before { content: "\e726"; }
+        .sf-icon-align_top:before { content: "\e727"; }
+        .sf-icon-align_middle:before { content: "\e728"; }
+        .sf-icon-align_bottom:before { content: "\e729"; }
+        .sf-icon-distribute_vertical:before { content: "\e72a"; }
+        .sf-icon-distribute_horizontal:before { content: "\e72b"; }
+        .sf-icon-lock:before { content: "\e72c"; }
+        .sf-icon-unlock:before { content: "\e72d"; }
+        .sf-icon-text:before { content: "\e72e"; }
+        .sf-icon-globe:before { content: "\e72f"; }
+        .sf-icon-visible:before { content: "\e730"; }
+        .sf-icon-underline:before { content: "\e731"; }
+        .sf-icon-bold:before { content: "\e732"; }
+        .sf-icon-chevron-down-fill:before { content: "\e733"; }
+        .sf-icon-chevron-up-fill:before { content: "\e734"; }
+        .sf-icon-chevron-down:before { content: "\e735"; }
+        .sf-icon-chevron-up:before { content: "\e736"; }
+        
 .sf-icon-free_hand:before { content: "\e910"; }
 .sf-icon-Underline:before { content: "\e700"; }
 .sf-icon-InsertImage:before { content: "\e701"; }

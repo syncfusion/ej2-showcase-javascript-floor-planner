@@ -154,7 +154,7 @@ input, button, select, textarea {
 .db-palette-parent {
     background-color:#fafafa;
     width:100%;
-    height:calc(100% - 28px);
+    height:calc(100%);
 }
 
 .sidebar.show-overview .db-palette-parent {
@@ -1213,7 +1213,7 @@ input[type="color"]::-moz-color-swatch {
     height: calc(50% - 6px);
     position: absolute;
     min-height: 12px;
-    display: none;
+    display: block;
     padding: 3px 2px 3px 0px;
 }
 
