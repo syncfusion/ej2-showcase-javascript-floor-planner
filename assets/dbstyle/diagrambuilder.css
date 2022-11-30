@@ -242,8 +242,8 @@ input, button, select, textarea {
 }
 
 .db-property-editor-container {
-    width: 270px;
-    background: #f2f2f2;
+    width: 260px;
+    background: #e3e3e3;
     height: 100%;
     float: left;
     padding: 10px;
@@ -673,8 +673,7 @@ input, button, select, textarea {
 
 #toolbarEditor .e-toolbar-items .e-toolbar-item.e-separator {
     margin: 0px;
-    width: calc((100% - 988px)/8);
-    background-color: #e3e3e3;
+    background-color: #b5b5b5;
 }
 
 .e-toolbar .e-toolbar-items .e-toolbar-item.e-separator {
@@ -701,7 +700,7 @@ input, button, select, textarea {
 .e-toolbar .e-toolbar-items .e-toolbar-item .e-dropdown-btn.e-btn {
     height: 100%;
     margin: 0px;
-    background: #ffffff;
+    background: #e3e3e3;
 }
 
 .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn {
@@ -873,7 +872,7 @@ input, button, select, textarea {
 #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-group .e-tbar-btn, #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-ungroup .e-tbar-btn,
 #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-order .e-dropdown-btn,
 #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-undo .e-tbar-btn, #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-redo .e-tbar-btn {
-    background: #f5f5f5;
+    background: #e3e3e3;
     border-color: #DADADA;
 }
 
@@ -947,7 +946,7 @@ input, button, select, textarea {
 .db-toolbar-container.db-select.db-group #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-ungroup .e-tbar-btn,
 .db-toolbar-container.db-undo #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-undo .e-tbar-btn, 
 .db-toolbar-container.db-redo #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-redo .e-tbar-btn {
-    background: #ffffff;
+    background: #e3e3e3;
 }
 
 .db-toolbar-container.db-select #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-stroke .e-icons.e-btn-icon,
@@ -1211,14 +1210,14 @@ input[type="color"]::-moz-color-swatch {
 .e-numeric.e-input-group .e-input-group-icon {
     margin: 0px;
     height: calc(50% - 6px);
-    position: absolute;
+    /* position: absolute; */
     min-height: 12px;
     display: block;
     padding: 3px 2px 3px 0px;
 }
 
 .db-text-input .e-numeric.e-input-group .e-input-group-icon {
-    padding: 1px 2px 1px 0px;
+    /* padding: 1px 2px 1px 0px; */
 }
 
 .e-numeric.e-input-group:hover .e-input-group-icon {
@@ -2295,8 +2294,8 @@ input.db-layer-edit {
 .db-readonly-input {
     width:100%;
     height:28px;
-    border:1px solid #f2f2f2;
-    background: #f2f2f2;
+    border:1px solid #e3e3e3;
+    background: #e3e3e3;
     text-indent: 3px;
 }
 
