@@ -2925,13 +2925,32 @@ var nodes =[
     shape:{ type : 'Path', data:'M35 30.5C35 31.8807 33.8807 33 32.5 33C31.1193 33 30 31.8807 30 30.5C30 29.1193 31.1193 28 32.5 28C33.8807 28 35 29.1193 35 30.5Z M1 16C1 7.71573 7.71573 1 16 1H50C58.2843 1 65 7.71573 65 16V25C65 38.2548 54.2548 49 41 49H25C11.7452 49 1 38.2548 1 25V16Z M8 19C8 14.5817 11.5817 11 16 11H50C54.4183 11 58 14.5817 58 19V29C58 37.8366 50.8366 45 42 45H24C15.1634 45 8 37.8366 8 29V19Z M32.7433 11.0559C32.7433 11.0559 33.3556 11.4094 34.3216 11.1506C35.2875 10.8918 35.641 10.2794 35.641 10.2794L39.1413 20.2196C39.5892 21.4916 38.8594 22.8757 37.5568 23.2247C36.2542 23.5737 34.9302 22.7399 34.6821 21.4144L32.7433 11.0559Z M36.6673 6.38077C37.1676 8.24791 36.0596 10.1671 34.1925 10.6674C32.3253 11.1677 30.4062 10.0596 29.9059 8.19251C29.4056 6.32538 30.5136 4.4062 32.3807 3.9059C34.2479 3.4056 36.1671 4.51364 36.6673 6.38077Z'}
   },
   {
-    id :'staircase',
-    offsetX:501,
+    id :'staircase1',
+    offsetX:517,
+    offsetY:427,
+    // Size of the node
+    width:87,
+    height:25,
+    shape:{ type : 'Path', data:'M1 17.4998L133 17.4998M121.177 0.869141L132.874 17.3083M121.582 34.7252L132.756 17.7252M121.5 0.999829V34.9998M109.5 0.999829V34.9998M97.5 0.999829V34.9998M85.5 0.999829V34.9998M73.5 0.999829V34.9998M61.5 0.999829V34.9998M49.5 0.999829V34.9998M37.5 0.999829V34.9998M25.5 0.999829L25.5 34.9998M13.5 0.999829L13.5 34.9998M133 0.999829V34.9998L1 34.9998L1 0.999824L133 0.999829Z'}
+  },
+  {
+    id :'staircase2',
+    offsetX:550,
     offsetY:470,
     // Size of the node
-    
+    width:61,
+    height:22,
     rotateAngle:90,
-    shape:{ type : 'Path', data:'M18 136.5V18H95V136.5M18 136.5C16.8954 136.5 16 137.395 16 138.5C16 139.605 16.8954 140.5 18 140.5C19.1046 140.5 20 139.605 20 138.5C20 137.395 19.1046 136.5 18 136.5ZM95 136.5H92.5L95 139.5L97.5 136.5H95ZM77 35V142H112V35M77 35H112M77 35V1M77 35H36M1 35V1H36M1 35H36M1 35V42M36 35V42M36 35V1M112 35V1H77M1 42V142H36V42M1 42H36M1 49H36M1 56H36M76.5 42H111.5M76.5 49H111.5M76.5 56H111.5M76.5 63H111.5M76.5 70H111.5M76.5 77H111.5M76.5 84H111.5M76.5 91H111.5M76.5 98H111.5M76.5 105H111.5M76.5 112H111.5M76.5 119H111.5M76.5 126H111.5M76.5 133H111.5M1 63H36M1 70H36M1 77H36M1 84H36M1 91H36M1 98H36M1 105H36M1 112H36M1 119H36M1 126H36M1 133H36M36 1H77M43.5 35V1M50.5 35V1M57.5 35V1M64.5 35V1M70.5 35V1'}
+    shape:{ type : 'Path', data:'M36 1V35M36 1L25 1M36 1H48M36 35H25M36 35H48M25 35L25 1M25 35H13L13 1L25 1M48 1V35M48 1H59M48 35H59M59 1V35M59 1H71M59 35H71M71 1V35M71 1H82M71 35H82M82 1V35M82 1H94M82 35H94M94 1V35M94 1H105M94 35H105M105 1V35M105 1H117V35H105M129 1V35L1 35L1 1L129 1Z'}
+  },
+  {
+    id :'staircase3',
+    offsetX:517,
+    offsetY:514,
+    // Size of the node
+    width:87,
+    height:25,
+    shape:{ type : 'Path', data:'M1 17.4998L133 17.4998M121.177 0.869141L132.874 17.3083M121.582 34.7252L132.756 17.7252M121.5 0.999829V34.9998M109.5 0.999829V34.9998M97.5 0.999829V34.9998M85.5 0.999829V34.9998M73.5 0.999829V34.9998M61.5 0.999829V34.9998M49.5 0.999829V34.9998M37.5 0.999829V34.9998M25.5 0.999829L25.5 34.9998M13.5 0.999829L13.5 34.9998M133 0.999829V34.9998L1 34.9998L1 0.999824L133 0.999829Z'}
   },
   {
     id :'balconyChair1',
@@ -3050,16 +3069,16 @@ var nodes =[
     rotateAngle:90,
     shape:{ type : 'Path', data:'M1 71L1 79L72 79V71M1 71L72 71M1 71C1 32.3401 32.3401 1 71 1H72V71'}
   },
-  {
-    id :'storeRoomDoor',
-    offsetX: 798,
-    offsetY: 122,
-    // Size of the node
-    width: 51,
-    height: 38,
-    rotateAngle:90,
-    shape:{ type : 'Path', data:'M1 71L1 79L72 79V71M1 71L72 71M1 71C1 32.3401 32.3401 1 71 1H72V71'}
-  },
+  // {
+  //   id :'storeRoomDoor',
+  //   offsetX: 798,
+  //   offsetY: 122,
+  //   // Size of the node
+  //   width: 51,
+  //   height: 38,
+  //   rotateAngle:90,
+  //   shape:{ type : 'Path', data:'M1 71L1 79L72 79V71M1 71L72 71M1 71C1 32.3401 32.3401 1 71 1H72V71'}
+  // },
   {
     id :'storeRoomWarddrobe',
     offsetX: 820,
@@ -3142,7 +3161,7 @@ var nodes =[
   {
     id :'TextNode7',
     offsetX:820,
-    offsetY:85,
+    offsetY:80,
     // Size of the node
     width: 50,
     height:36,
@@ -3688,7 +3707,7 @@ var bedRoom = [
 { id:'Double bed1', shape :{ type: 'Path', data:'M1 54V2C1 1.44772 1.44772 1 2 1H44C44.5523 1 45 1.44771 45 2V54C45 54.5523 44.5523 55 44 55H2C1.44772 55 1 54.5523 1 54Z  M8 14V8C8 7.44772 8.44772 7 9 7H19C19.5523 7 20 7.44772 20 8V14C20 14.5523 19.5523 15 19 15H9C8.44772 15 8 14.5523 8 14Z M26 14V8C26 7.44772 26.4477 7 27 7H37C37.5523 7 38 7.44772 38 8V14C38 14.5523 37.5523 15 37 15H27C26.4477 15 26 14.5523 26 14Z M0.5 2V54H1.5V2H0.5ZM2 55.5H44V54.5H2V55.5ZM45.5 54V2H44.5V54H45.5ZM2 1.5H44V0.5H2V1.5ZM45.5 2C45.5 1.17157 44.8284 0.5 44 0.5V1.5C44.2761 1.5 44.5 1.72386 44.5 2H45.5ZM44 55.5C44.8284 55.5 45.5 54.8284 45.5 54H44.5C44.5 54.2761 44.2761 54.5 44 54.5V55.5ZM0.5 54C0.5 54.8284 1.17157 55.5 2 55.5V54.5C1.72386 54.5 1.5 54.2761 1.5 54H0.5ZM1.5 2C1.5 1.72386 1.72386 1.5 2 1.5V0.5C1.17157 0.5 0.5 1.17157 0.5 2H1.5ZM1 21.5H45V20.5H1V21.5ZM7.5 8V14H8.5V8H7.5ZM9 15.5H19V14.5H9V15.5ZM20.5 14V8H19.5V14H20.5ZM19 6.5H9V7.5H19V6.5ZM20.5 8C20.5 7.17157 19.8284 6.5 19 6.5V7.5C19.2761 7.5 19.5 7.72386 19.5 8H20.5ZM19 15.5C19.8284 15.5 20.5 14.8284 20.5 14H19.5C19.5 14.2761 19.2761 14.5 19 14.5V15.5ZM7.5 14C7.5 14.8284 8.17157 15.5 9 15.5V14.5C8.72386 14.5 8.5 14.2761 8.5 14H7.5ZM8.5 8C8.5 7.72386 8.72386 7.5 9 7.5V6.5C8.17157 6.5 7.5 7.17157 7.5 8H8.5ZM25.5 8V14H26.5V8H25.5ZM27 15.5H37V14.5H27V15.5ZM38.5 14V8H37.5V14H38.5ZM37 6.5H27V7.5H37V6.5ZM38.5 8C38.5 7.17157 37.8284 6.5 37 6.5V7.5C37.2761 7.5 37.5 7.72386 37.5 8H38.5ZM37 15.5C37.8284 15.5 38.5 14.8284 38.5 14H37.5C37.5 14.2761 37.2761 14.5 37 14.5V15.5ZM25.5 14C25.5 14.8284 26.1716 15.5 27 15.5V14.5C26.7239 14.5 26.5 14.2761 26.5 14H25.5ZM26.5 8C26.5 7.72386 26.7239 7.5 27 7.5V6.5C26.1716 6.5 25.5 7.17157 25.5 8H26.5Z'}},
 { id:'Single bed',shape :{ type: 'Path', data:'M1 2C1 1.44771 1.44772 1 2 1H26C26.5523 1 27 1.44772 27 2V54C27 54.5523 26.5523 55 26 55H2C1.44772 55 1 54.5523 1 54V2Z M1 27.5941C1 27.5432 1.0038 27.4928 1.01218 27.4426C1.13134 26.7284 2.13402 21.153 4.41646 21.0198C4.47147 21.0165 4.52813 21.0118 4.58296 21.0063C7.51272 20.7131 9.98932 30.7524 14.8322 30.9965C14.9423 31.002 15.0553 30.9826 15.1593 30.946C18.0006 29.9475 18.036 28.9499 20 28.5008C22.6744 27.8892 25.3331 28.7977 26.4505 29.2665C26.794 29.4106 27 29.7509 27 30.1234V52.0177C27 52.5699 26.5523 53.0177 26 53.0177H2C1.44772 53.0177 1 52.5699 1 52.0177V27.5941Z M7.47077 8.3988C7.27248 7.71969 7.76957 7 8.47703 7H19.0951C19.901 7 20.4243 7.93945 20.1178 8.68485C19.7917 9.47806 19.5 10.4742 19.5 11.5C19.5 12.5349 19.7571 13.4842 20.0583 14.2413C20.363 15.007 19.824 16 19 16H8.47703C7.76957 16 7.27248 15.2803 7.47077 14.6012C7.73012 13.7129 8 12.539 8 11.5C8 10.461 7.73012 9.28707 7.47077 8.3988Z'}},
 { id:'Single bed1',shape :{ type: 'Path', data:'M1 20H29M1 2V54C1 54.5523 1.44772 55 2 55H28C28.5523 55 29 54.5523 29 54V2C29 1.44771 28.5523 1 28 1H2C1.44772 1 1 1.44772 1 2ZM9 8V14C9 14.5523 9.44772 15 10 15H20C20.5523 15 21 14.5523 21 14V8C21 7.44772 20.5523 7 20 7H10C9.44772 7 9 7.44772 9 8Z'}},
-{ id:'Large Plant', shape :{ type: 'Path', data:'M25.9813 23.5141C27.2901 23.5993 48.6838 19.0468 41.4746 10.8333C36.916 5.63963 21.1089 23.1968 25.9813 23.5141Z M23.6253 25.9234C23.1736 27.1547 21.4942 48.9629 31.4103 44.3689C37.6806 41.464 25.3067 21.3392 23.6253 25.9234Z M25.5989 25.6003C26.3978 26.6405 43.9262 39.7237 45.3483 28.888C46.2474 22.0363 22.6249 21.7278 25.5989 25.6003Z M24.7197 20.7567C25.6675 19.8502 36.7808 1.01108 25.8549 0.76778C18.9461 0.613932 21.191 24.1316 24.7197 20.7567Z M20.8885 22.8171C19.6966 22.2698 -1.91128 18.8763 1.88665 29.1238C4.2882 35.6035 25.3258 24.8547 20.8885 22.8171Z M21.6607 25.6193C20.3938 25.9588 1.59406 37.1385 11.0585 42.6028C17.0432 46.0581 26.3771 24.3556 21.6607 25.6193Z M22.3667 20.2554C21.8975 19.0306 8.82513 1.49408 4.37366 11.475C1.55885 17.7863 24.1136 24.815 22.3667 20.2554Z M40.0382 18.2498C40.7878 20.1543 41.1995 22.2289 41.1995 24.3996C41.1995 24.5507 41.1975 24.7013 41.1935 24.8515M35.2235 11.5507C33.6921 10.2594 31.9267 9.2368 30 8.55572M39 32.7159C37.5069 35.3317 35.3311 37.5074 32.7153 39.0004M24.8419 41.1939C24.6949 41.1977 24.5474 41.1996 24.3995 41.1996C21.7821 41.1996 19.3046 40.6011 17.0963 39.5334M10.7727 34.2278C9.9752 33.1239 9.30848 31.9193 8.79533 30.6367M7.70563 22.5004C7.89672 20.8019 8.34106 19.1801 9 17.6736M13.9123 11.274C16.1576 9.47777 18.8737 8.24563 21.846 7.79239M25.9813 23.5141C27.2901 23.5993 48.6838 19.0468 41.4746 10.8333C36.916 5.63963 21.1089 23.1968 25.9813 23.5141ZM23.6253 25.9234C23.1736 27.1547 21.4942 48.9629 31.4103 44.3689C37.6806 41.464 25.3067 21.3392 23.6253 25.9234ZM25.5989 25.6003C26.3978 26.6405 43.9262 39.7237 45.3483 28.888C46.2474 22.0363 22.6249 21.7278 25.5989 25.6003ZM24.7197 20.7567C25.6675 19.8502 36.7808 1.01108 25.8549 0.76778C18.9461 0.613932 21.191 24.1316 24.7197 20.7567ZM20.8885 22.8171C19.6966 22.2698 -1.91128 18.8763 1.88665 29.1238C4.2882 35.6035 25.3258 24.8547 20.8885 22.8171ZM21.6607 25.6193C20.3938 25.9588 1.59406 37.1385 11.0585 42.6028C17.0432 46.0581 26.3771 24.3556 21.6607 25.6193ZM22.3667 20.2554C21.8975 19.0306 8.82513 1.49408 4.37366 11.475C1.55885 17.7863 24.1136 24.815 22.3667 20.2554Z'}},
+{ id:'Large Plant', width: 30, height: 30, previewSize:{height:30,width:30},dragSize:{height:30,width:30} ,shape :{ type: 'Path', data:'M25.9813 23.5141C27.2901 23.5993 48.6838 19.0468 41.4746 10.8333C36.916 5.63963 21.1089 23.1968 25.9813 23.5141Z M23.6253 25.9234C23.1736 27.1547 21.4942 48.9629 31.4103 44.3689C37.6806 41.464 25.3067 21.3392 23.6253 25.9234Z M25.5989 25.6003C26.3978 26.6405 43.9262 39.7237 45.3483 28.888C46.2474 22.0363 22.6249 21.7278 25.5989 25.6003Z M24.7197 20.7567C25.6675 19.8502 36.7808 1.01108 25.8549 0.76778C18.9461 0.613932 21.191 24.1316 24.7197 20.7567Z M20.8885 22.8171C19.6966 22.2698 -1.91128 18.8763 1.88665 29.1238C4.2882 35.6035 25.3258 24.8547 20.8885 22.8171Z M21.6607 25.6193C20.3938 25.9588 1.59406 37.1385 11.0585 42.6028C17.0432 46.0581 26.3771 24.3556 21.6607 25.6193Z M22.3667 20.2554C21.8975 19.0306 8.82513 1.49408 4.37366 11.475C1.55885 17.7863 24.1136 24.815 22.3667 20.2554Z M40.0382 18.2498C40.7878 20.1543 41.1995 22.2289 41.1995 24.3996C41.1995 24.5507 41.1975 24.7013 41.1935 24.8515M35.2235 11.5507C33.6921 10.2594 31.9267 9.2368 30 8.55572M39 32.7159C37.5069 35.3317 35.3311 37.5074 32.7153 39.0004M24.8419 41.1939C24.6949 41.1977 24.5474 41.1996 24.3995 41.1996C21.7821 41.1996 19.3046 40.6011 17.0963 39.5334M10.7727 34.2278C9.9752 33.1239 9.30848 31.9193 8.79533 30.6367M7.70563 22.5004C7.89672 20.8019 8.34106 19.1801 9 17.6736M13.9123 11.274C16.1576 9.47777 18.8737 8.24563 21.846 7.79239M25.9813 23.5141C27.2901 23.5993 48.6838 19.0468 41.4746 10.8333C36.916 5.63963 21.1089 23.1968 25.9813 23.5141ZM23.6253 25.9234C23.1736 27.1547 21.4942 48.9629 31.4103 44.3689C37.6806 41.464 25.3067 21.3392 23.6253 25.9234ZM25.5989 25.6003C26.3978 26.6405 43.9262 39.7237 45.3483 28.888C46.2474 22.0363 22.6249 21.7278 25.5989 25.6003ZM24.7197 20.7567C25.6675 19.8502 36.7808 1.01108 25.8549 0.76778C18.9461 0.613932 21.191 24.1316 24.7197 20.7567ZM20.8885 22.8171C19.6966 22.2698 -1.91128 18.8763 1.88665 29.1238C4.2882 35.6035 25.3258 24.8547 20.8885 22.8171ZM21.6607 25.6193C20.3938 25.9588 1.59406 37.1385 11.0585 42.6028C17.0432 46.0581 26.3771 24.3556 21.6607 25.6193ZM22.3667 20.2554C21.8975 19.0306 8.82513 1.49408 4.37366 11.475C1.55885 17.7863 24.1136 24.815 22.3667 20.2554Z'}},
 { id:'Small Plant', shape :{ type: 'Path', data:'M41.0021 14.6256C39.4786 15.0878 15.4174 23.8084 24.9086 22.7805C30.9102 22.1305 46.6742 12.9049 41.0021 14.6256Z M30.6226 40.7355C30.095 39.2334 20.3422 15.5718 21.7796 25.0097C22.6885 30.9776 32.587 46.328 30.6226 40.7355Z M40.8599 30.8341C39.4811 30.038 16.6684 18.4377 23.9067 24.6624C28.4837 28.5985 45.9932 33.7978 40.8599 30.8341Z M24.9451 2.15326C24.5331 3.69113 19.2324 28.7289 23.3715 20.1262C25.9889 14.6864 26.4792 -3.57215 24.9451 2.15326Z M2.19397 25.3449C3.78608 25.3449 29.3427 23.9847 19.9617 22.2131C14.0299 21.0929 -3.73342 25.3449 2.19397 25.3449Z M14.4307 41.966C15.2268 40.5872 26.8271 17.7744 20.6024 25.0127C16.6664 29.5898 11.467 47.0992 14.4307 41.966Z M9.34308 7.01354C10.1391 8.39235 24.0954 29.8449 20.9391 20.835C18.9434 15.1378 6.37938 1.88027 9.34308 7.01354Z M8.74609 23.1317C8.74609 19.0028 10.6305 15.3141 13.5861 12.8786M25.2568 10.2486C29.1467 11.2213 32.3568 13.9095 34.0367 17.4627M23.5 9.93362C23.0157 9.88011 22.5236 9.85264 22.0251 9.85264C19.3319 9.85264 16.826 10.6544 14.733 12.0323M34.6489 19.0003C35.0742 20.3006 35.3041 21.6893 35.3041 23.1317C35.3041 24.7546 35.013 26.3095 34.4801 27.747M33.7595 29.3531C32.4773 31.7665 30.4723 33.7373 28.0333 34.9769M26.5361 35.6249C25.1278 36.1335 23.6088 36.4107 22.0251 36.4107C20.4153 36.4107 18.8723 36.1242 17.4445 35.5995M15.8519 34.8916C12.0702 32.9023 9.36529 29.1424 8.83942 24.7143M41.0021 14.6256C39.4786 15.0878 15.4174 23.8084 24.9086 22.7805C30.9102 22.1305 46.6742 12.9049 41.0021 14.6256ZM30.6226 40.7355C30.095 39.2334 20.3422 15.5718 21.7796 25.0097C22.6885 30.9776 32.587 46.328 30.6226 40.7355ZM40.8599 30.8341C39.4811 30.038 16.6684 18.4377 23.9067 24.6624C28.4837 28.5985 45.9932 33.7978 40.8599 30.8341ZM24.9451 2.15326C24.5331 3.69113 19.2324 28.7289 23.3715 20.1262C25.9889 14.6864 26.4792 -3.57215 24.9451 2.15326ZM2.19397 25.3449C3.78608 25.3449 29.3427 23.9847 19.9617 22.2131C14.0299 21.0929 -3.73342 25.3449 2.19397 25.3449ZM14.4307 41.966C15.2268 40.5872 26.8271 17.7744 20.6024 25.0127C16.6664 29.5898 11.467 47.0992 14.4307 41.966ZM9.34308 7.01354C10.1391 8.39235 24.0954 29.8449 20.9391 20.835C18.9434 15.1378 6.37938 1.88027 9.34308 7.01354Z'}},
 { id:'Lamp light', shape :{ type: 'Path', data:"M17 7C11.4772 7 7 11.4772 7 17C7 22.5228 11.4772 27 17 27C22.5228 27 27 22.5228 27 17C27 11.4772 22.5228 7 17 7ZM17 7V13.5M20.2363 18.5593L25.3654 21.3093M13.7544 18.4305L8.2541 21.6805M33 17C33 25.8366 25.8366 33 17 33C8.16344 33 1 25.8366 1 17C1 8.16344 8.16344 1 17 1C25.8366 1 33 8.16344 33 17ZM25.5 17C25.5 21.6944 21.6944 25.5 17 25.5C12.3056 25.5 8.5 21.6944 8.5 17C8.5 12.3056 12.3056 8.5 17 8.5C21.6944 8.5 25.5 12.3056 25.5 17ZM21 17C21 19.2091 19.2091 21 17 21C14.7909 21 13 19.2091 13 17C13 14.7909 14.7909 13 17 13C19.2091 13 21 14.7909 21 17Z"}},
 { id:'Book Case', shape :{ type: 'Path', data:'M113 9V1H1V9M113 9H1M113 9V29H1V9M4 12H11V25H4V12ZM13 12H20V25H13V12ZM22 12H29V25H22V12ZM31 12H38V25H31V12ZM40 12H47V25H40V12ZM49 12H56V25H49V12ZM58 12H65V25H58V12ZM67 12H74V25H67V12ZM76 12H83V25H76V12ZM85 12H92V25H85V12ZM94 12H101V25H94V12ZM103 12H110V25H103V12Z'}},
@@ -3728,8 +3747,6 @@ var livingRoom=[
 { id:'Staircase', shape :{ type: 'Path', data:'M36 1V35M36 1L25 1M36 1H48M36 35H25M36 35H48M25 35L25 1M25 35H13L13 1L25 1M48 1V35M48 1H59M48 35H59M59 1V35M59 1H71M59 35H71M71 1V35M71 1H82M71 35H82M82 1V35M82 1H94M82 35H94M94 1V35M94 1H105M94 35H105M105 1V35M105 1H117V35H105M129 1V35L1 35L1 1L129 1Z'}},
 { id:'Staircase1', shape :{ type: 'Path', data:'M36 1V35M36 1L25 1M36 1H48M36 35H25M36 35H48M25 35L25 1M25 35H13L13 1L25 1M48 1V35M48 1H59M48 35H59M59 1V35M59 1H71M59 35H71M71 1V35M71 1H82M71 35H82M82 1V35M82 1H94M82 35H94M94 1V35M94 1H105M94 35H105M105 1V35M105 1H117V35H105M9 17.5H122M9 17.5C9 18.8807 7.88071 20 6.5 20C5.11929 20 4 18.8807 4 17.5C4 16.1193 5.11929 15 6.5 15C7.88071 15 9 16.1193 9 17.5ZM129 1V35L1 35L1 1L129 1ZM126 17.5L121.5 20.5311V14.4689L126 17.5Z'}},
 { id:'Staircase2', shape :{ type: 'Path', data:'M1 17.4998L133 17.4998M121.177 0.869141L132.874 17.3083M121.582 34.7252L132.756 17.7252M121.5 0.999829V34.9998M109.5 0.999829V34.9998M97.5 0.999829V34.9998M85.5 0.999829V34.9998M73.5 0.999829V34.9998M61.5 0.999829V34.9998M49.5 0.999829V34.9998M37.5 0.999829V34.9998M25.5 0.999829L25.5 34.9998M13.5 0.999829L13.5 34.9998M133 0.999829V34.9998L1 34.9998L1 0.999824L133 0.999829Z'}},
-{ id:'Staircase3', shape :{ type: 'Path', data:'M18 136.5V18H95V136.5M18 136.5C16.8954 136.5 16 137.395 16 138.5C16 139.605 16.8954 140.5 18 140.5C19.1046 140.5 20 139.605 20 138.5C20 137.395 19.1046 136.5 18 136.5ZM95 136.5H92.5L95 139.5L97.5 136.5H95ZM77 35V142H112V35M77 35H112M77 35V1M77 35H36M1 35V1H36M1 35H36M1 35V42M36 35V42M36 35V1M112 35V1H77M1 42V142H36V42M1 42H36M1 49H36M1 56H36M76.5 42H111.5M76.5 49H111.5M76.5 56H111.5M76.5 63H111.5M76.5 70H111.5M76.5 77H111.5M76.5 84H111.5M76.5 91H111.5M76.5 98H111.5M76.5 105H111.5M76.5 112H111.5M76.5 119H111.5M76.5 126H111.5M76.5 133H111.5M1 63H36M1 70H36M1 77H36M1 84H36M1 91H36M1 98H36M1 105H36M1 112H36M1 119H36M1 126H36M1 133H36M36 1H77M43.5 35V1M50.5 35V1M57.5 35V1M64.5 35V1M70.5 35V1'}},
-{ id:'Staircase4', shape :{ type: 'Path', data:'M18 136.5V18H75V136.5M18 136.5C16.8954 136.5 16 137.395 16 138.5C16 139.605 16.8954 140.5 18 140.5C19.1046 140.5 20 139.605 20 138.5C20 137.395 19.1046 136.5 18 136.5ZM75 136.5H72.5L75 139.5L77.5 136.5H75ZM57 35V142H92V35M57 35H92M57 35H46.5M1 35V1M1 35H36M1 35V42M1 1L46.5 35M1 1H28.5M36 35V42M36 35H46.5M92 1V35M92 1L46.5 35M92 1H64.5M1 42V142H36V42M1 42H36M46.5 35L64.5 1M46.5 35L28.5 1M64.5 1H28.5M1 49H36M1 56H36M56.5 42H91.5M56.5 49H91.5M56.5 56H91.5M56.5 63H91.5M56.5 70H91.5M56.5 77H91.5M56.5 84H91.5M56.5 91H91.5M56.5 98H91.5M56.5 105H91.5M56.5 112H91.5M56.5 119H91.5M56.5 126H91.5M56.5 133H91.5M1 63H36M1 70H36M1 77H36M1 84H36M1 91H36M1 98H36M1 105H36M1 112H36M1 119H36M1 126H36M1 133H36'}},
 
 ];
 var kitchen=[
@@ -3859,7 +3876,7 @@ palette.appendTo('#symbolpalette');
         constraints: (ej.diagrams.SnapConstraints.All & ~ej.diagrams.SnapConstraints.SnapToLines)
     },
     pageSettings: {
-        background: { color: 'white' }, width: 816, height: 1056, multiplePage: true, margin: { left: 5, top: 5 },
+        background: { color: '#FFFFFF' }, width: 816, height: 1056, multiplePage: true, margin: { left: 5, top: 5 },
         orientation: 'Landscape'
     },
     contextMenuSettings: {
@@ -3978,15 +3995,11 @@ var getFileMenuItems =[
   var getDesignMenuItems=[
     { text: 'Orientation', items:[{ text : 'Landscape',iconCss: 'sf-icon-check-tick'},{text : 'Portrait'}]},
     { text: 'Page Size' , items:[
-                              { text : 'Letter'},
-                              {text : 'Tabloid'},
-                              {text : 'Legal'},
-                              {text : 'A3'},
-                              {text : 'A4'},
-                              {text : 'A5'},
-                              {text : 'A6'}
-                            
-                            ]},
+      { text: 'Letter (8.5 in x 11 in)', value: 'Letter',iconCss:'sf-icon-check-tick' }, { text: 'Legal (8.5 in x 14 in)', value: 'Legal' },
+      { text: 'Tabloid (279 mm x 432 mm)', value: 'Tabloid' }, { text: 'A3 (297 mm x 420 mm)', value: 'A3' },
+      { text: 'A4 (210 mm x 297 mm)', value: 'A4' }, { text: 'A5 (148 mm x 210 mm)', value: 'A5' },
+      { text: 'A6 (105 mm x 148 mm)', value: 'A6' },
+    ]},
   ]
   var getViewMenuItems = [
     { text: 'Show Rulers', iconCss: 'sf-icon-check-tick' },
@@ -4156,24 +4169,24 @@ function menuClick(args) {
               document.getElementById('pageLandscape').classList.add('e-active');
               document.getElementById('pagePortrait').classList.remove('e-active');
               break;
-            case 'portrait':
+          case 'portrait':
               args.item.parentObj.items[0].iconCss = '';
               args.item.iconCss = 'sf-icon-check-tick';
               diagram.pageSettings.orientation = 'Portrait';
               document.getElementById('pagePortrait').classList.add('e-active');
               document.getElementById('pageLandscape').classList.remove('e-active');
               break;
-    case 'letter':
-    case 'tabloid':
-    case 'legal':
-    case 'a4':
-    case 'a3':
-    case 'a5':
-    case 'a6':
-          paperListChange(args)
-          pageSettingsList.text = args.item.text;
-          updateSelection(args.item)
-          break;
+          case 'letter(8.5inx11in)':
+          case 'legal(8.5inx14in)':
+          case 'a3(297mmx420mm)':
+          case 'a4(210mmx297mm)':
+          case 'a5(148mmx210mm)':
+          case 'a6(105mmx148mm)':
+          case 'tabloid(279mmx432mm)':
+            paperListChange(args)
+            pageSettingsList.text = args.item.text;
+            updateSelection(args.item)
+            break;
     case 'insertpicture':
         document.getElementsByClassName('e-file-select-wrap')[0].querySelector('button').click();
         break;
@@ -4363,7 +4376,7 @@ var paperList = [
 
 var pageSettingsList = new ej.dropdowns.DropDownList({
   dataSource:  paperList,
-  change: function (args) { paperListChange(pagePortraitnodesargs) },
+  change: function (args) { paperListChange(args) },
   fields: { text: 'text', value: 'value' },
   index: 0
 });
@@ -4496,7 +4509,7 @@ nodeProperties.aspectRatio = aspectRatioBtn;
 
 document.getElementById('aspectRatioBtn').onclick = (args) =>{
 aspectRatioClick(args);
-  // document.getElementById('pageDimension').click(); 
+
 }
 
 var rotateIconBtn = new ej.buttons.Button({ iconCss: 'sf-icon-rotate' });
@@ -5113,31 +5126,31 @@ function getPaperSize(args)
 {
 var paperSize = new PaperSize();
     switch (args) {
-        case 'Letter':
+        case 'Letter (8.5 in x 11 in)':
             paperSize.pageWidth = 816;
             paperSize.pageHeight = 1056;
             break;
-        case 'Legal':
+        case 'Legal (8.5 in x 14 in)':
             paperSize.pageWidth = 816;
             paperSize.pageHeight = 1344;
             break;
-        case 'Tabloid':
+        case 'Tabloid (279 mm x 432 mm)':
             paperSize.pageWidth = 1056;
             paperSize.pageHeight = 1632;
             break;
-        case 'A3':
+        case 'A3 (297 mm x 420 mm)':
             paperSize.pageWidth = 1122;
             paperSize.pageHeight = 1587;
             break;
-        case 'A4':
+        case 'A4 (210 mm x 297 mm)':
             paperSize.pageWidth = 793;
             paperSize.pageHeight = 1122;
             break;
-        case 'A5':
+        case 'A5 (148 mm x 210 mm)':
             paperSize.pageWidth = 559;
             paperSize.pageHeight = 793;
             break;
-        case 'A6':
+        case 'A6 (105 mm x 148 mm)':
             paperSize.pageWidth = 396;
             paperSize.pageHeight = 559;
             break;
@@ -5364,8 +5377,8 @@ function selectionChange(args){
         toolbarEditor.hideItem(9,false);
         toolbarEditor.hideItem(18,false);
         toolbarEditor.hideItem(23,false);
-        toolbarEditor.hideItem(26,true);
-        toolbarEditor.hideItem(29,true);
+        toolbarEditor.hideItem(26,false);
+        toolbarEditor.hideItem(29,false);
         toolbarEditor.hideItem(32,true);
     }
     else if (selectedItems.length === 1) {
@@ -5376,7 +5389,6 @@ function selectionChange(args){
         toolbarEditor.hideItem(23,false);
         toolbarEditor.hideItem(26,false);
         toolbarEditor.hideItem(29,false)
-        toolbarEditor.hideItem(32,true);
         if(selectedItems[0].children && selectedItems[0].children.length>0)
                     {
                       toolbarEditor.items[8].tooltipText = 'UnGroup';
@@ -5428,20 +5440,26 @@ function onClickDisable(args)
   {
       for(i=8;i<33;i++)
       {
-        // if(i=28){
-        //  if( diagram.selectedItems.nodes[0] ? nodes[0]:connectors[0])
-        //  {
-        //   toolbarEditor.hideItem(28,true);
-        //  }
-        // }
           if(toolbarEditor.items[i].type !=='Separator'){
               if(i<=17)
               {
                 toolbarEditor.items[i].template = '<div></div>';
               }
-              else if(i>17){
+              else if(i>17 && i!==31){
                 toolbarEditor.items[i].template = '';
               }
+              else if(i === 31) {
+                var obj =  diagram.selectedItems.nodes.length>0 ?diagram.selectedItems.nodes[0]: diagram.selectedItems.connectors[0];
+                if(obj.annotations.length && obj.annotations[0].content)
+                {
+                  toolbarEditor.items[i].template = '';
+                  toolbarEditor.hideItem(i+1,false);
+                }
+                else{
+                  toolbarEditor.items[i].template = '<div></div>';
+                  toolbarEditor.hideItem(i+1,true);
+                }
+             }
           }
       }
   }
@@ -5492,10 +5510,10 @@ function multipleSelection()
   for(i=8;i<33;i++)
   {
       if(toolbarEditor.items[i].type !=='Separator'){
-          if(i !== 31 &&  i !== 32){
+          if(i !== 32 &&  i !== 33){
           toolbarEditor.items[i].template= '';
           }
-          if(i == 32 || i == 31)
+          if(i == 32 || i == 33)
           {
           toolbarEditor.items[i].template= '<div></div>';
           }
@@ -5746,9 +5764,9 @@ var toolbarTextSubAlignment = new ej.navigations.Toolbar({
   overflowMode: 'Scrollable',
   clicked:  function (args) { toolbarTextSubAlignChange(args); },
   items: [
-      { prefixIcon: 'sf-icon-align-text-left', tooltipText: 'Align Text Left', cssClass: 'tb-item-start' },
-      { prefixIcon: 'sf-icon-align-text-horizontal-center', tooltipText: 'Align Text Center', cssClass: 'tb-item-middle' },
-      { prefixIcon: 'sf-icon-align-text-rignt', tooltipText: 'Align Text Right', cssClass: 'tb-item-end' }
+      { prefixIcon: 'sf-icon-align-left', tooltipText: 'Align Text Left', cssClass: 'tb-item-start' },
+      { prefixIcon: 'sf-icon-align-center', tooltipText: 'Align Text Center', cssClass: 'tb-item-middle' },
+      { prefixIcon: 'sf-icon-align-right', tooltipText: 'Align Text Right', cssClass: 'tb-item-end' }
   ]
 });
 toolbarTextSubAlignment.appendTo('#toolbarTextSubAlignment');
@@ -6160,14 +6178,14 @@ var toolbarEditor = new ej.navigations.Toolbar({
       { prefixIcon: 'sf-icon-font-color', tooltipText: 'Font Color', template: '<div></div>',cssClass: 'tb-item-end tb-item-stroke'},
                       { type: 'Separator', visible: false },
                   {
-                      type: 'Separator',template:'<div style="margin-left:150px;"></div>'
+                      type: 'Separator',template:'<div style="margin-left:180px;"></div>'
                   },
       {
           cssClass: 'tb-item-end tb-zoom-dropdown-btn', template: '<button id="btnZoomIncrement"></button>'
       },
-                      {
-                          type: 'Separator'
-                      },
+      {
+       type: 'Separator',template:'<div style="margin-left:10px;"></div>'
+      },
       { prefixIcon: 'sf-icon-properties' , tooltipText: 'Hide property',template:'<button id="hideProperty"></button>'}
     ]
 });
@@ -6189,9 +6207,13 @@ function hideElements(elementType, diagram)
         var diagramContainer = document.getElementsByClassName('diagrambuilder-container')[0];
         if (diagramContainer.classList.contains(elementType)) {
                 diagramContainer.classList.remove(elementType);
+                document.getElementById('hideProperty').style.backgroundColor = ''
+                hidePropertyBtn.isPrimary = true;
         }
         else {
             diagramContainer.classList.add(elementType);
+            document.getElementById('hideProperty').style.backgroundColor = '#e3e3e3'
+            hidePropertyBtn.isPrimary = false;
         }
         if (diagram) {
             diagram.updateViewPort();
@@ -6332,7 +6354,7 @@ function toolbarEditorClick(args) {
               diagram.tool = ej.diagrams.DiagramTools.ContinuousDraw;
               break;
         case 'straight' : 
-              diagram.drawingObject = { type: 'Straight' } ;
+              diagram.drawingObject = { type: 'Straight' ,targetDecorator:{ shape: "none"}} ;
               diagram.tool = ej.diagrams.DiagramTools.ContinuousDraw;
               break;
         case 'orthogonal' : 

@@ -64,7 +64,7 @@ input, button, select, textarea {
     border: none;
     font-weight: 400;
     height: 19px;
-    min-width: 250px;
+    min-width: 260px;
 }
 
 .db-diagram-name-container.db-edit-name #diagramName {
@@ -145,16 +145,16 @@ input, button, select, textarea {
 
 .main-content {
     margin: 0;
-    left:255px;
+    left:212px;
     height: calc(100% - 112px);
     position:absolute;
-    width:calc(100% - 255px);
+    width:calc(100% - 212px);
 }
 
 .db-palette-parent {
     background-color:#fafafa;
     width:100%;
-    height:calc(100%);
+    height:calc(100% - 28px);
 }
 
 .sidebar.show-overview .db-palette-parent {
@@ -328,7 +328,7 @@ input, button, select, textarea {
 }
 
 .db-diagram-container {
-    width:calc(100% - 270px);
+    width:calc(100% - 260px);
     height: 100%;
     float: left;
 }
@@ -342,7 +342,7 @@ input, button, select, textarea {
 }
 
 .db-current-diagram-container {
-    height: calc(100% - 28px);
+    height: calc(100% );
 }
 
 .diagrambuilder-container.hide-pager .db-current-diagram-container {
@@ -681,7 +681,7 @@ input, button, select, textarea {
 }
 
 #toolbarNodeInsert {
-    width: 68px !important;
+    width: 34px !important;
 }
 
 .db-property-editor-container .e-toolbar .e-toolbar-items .e-toolbar-item:not(.e-separator) {
@@ -699,8 +699,9 @@ input, button, select, textarea {
 .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn,
 .e-toolbar .e-toolbar-items .e-toolbar-item .e-dropdown-btn.e-btn {
     height: 100%;
-    margin: 0px;
-    background: #e3e3e3;
+    margin: 0px 0px 6px;
+    /* background: #ffffff;*/
+    background: transparent;
 }
 
 .e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn {
@@ -732,7 +733,7 @@ input, button, select, textarea {
 }
 
 .e-toolbar .e-toolbar-items .e-toolbar-item .e-btn {
-    border-style: solid;
+    /* border-style: solid; */
     border-color: #D5D5D5;
 }
 
@@ -872,7 +873,7 @@ input, button, select, textarea {
 #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-group .e-tbar-btn, #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-ungroup .e-tbar-btn,
 #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-order .e-dropdown-btn,
 #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-undo .e-tbar-btn, #toolbarEditor .e-toolbar-items .e-toolbar-item.tb-item-redo .e-tbar-btn {
-    background: #e3e3e3;
+    /* background: #e3e3e3; */
     border-color: #DADADA;
 }
 
@@ -1034,7 +1035,7 @@ input, button, select, textarea {
 }
 
 .db-col-right {
-    padding-left: 3px;
+    padding-left: 0px;
     padding-right: 0px;
 }
 
@@ -1068,9 +1069,9 @@ input[type="color"]::-moz-color-swatch {
 .db-text-container {
     width: 100%;
     background: #ffffff;
-    border: 1px solid #E0E0E0;
-    height: 28px;
-    border-radius: 3px;
+    /* border: 1px solid #E0E0E0; */
+    height: 26px;
+    /* border-radius: 3px; */
 }
 
 .db-text-container:hover,
@@ -1080,6 +1081,7 @@ input[type="color"]::-moz-color-swatch {
 
 .db-color-input {
     width: 100%;
+    
 }
 
 .db-color-btn {
@@ -1089,12 +1091,12 @@ input[type="color"]::-moz-color-swatch {
 
 .db-color-input, .db-text-input {
     float: left;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .db-text {
     float: left;
-    width: 25px;
+    width: 20px;
     text-align: center;
     height: auto;
     margin-top: 4px;
@@ -1119,6 +1121,7 @@ input[type="color"]::-moz-color-swatch {
     padding: 0px;
     background: transparent;
     box-shadow: 0 0 0 0;
+    padding: 2px 2px;
 }
 
 .db-color-container .e-dropdown-btn {
@@ -1208,16 +1211,18 @@ input[type="color"]::-moz-color-swatch {
 }
 
 .e-numeric.e-input-group .e-input-group-icon {
-    margin: 0px;
+    /* margin: 0px; */
     height: calc(50% - 6px);
     /* position: absolute; */
     min-height: 12px;
     display: block;
-    padding: 3px 2px 3px 0px;
+    /* padding: 3px 2px 3px 0px; */
 }
 
 .db-text-input .e-numeric.e-input-group .e-input-group-icon {
     /* padding: 1px 2px 1px 0px; */
+    padding: 0px 0px;
+    margin: 2px 0px 0px 0px;
 }
 
 .e-numeric.e-input-group:hover .e-input-group-icon {
@@ -1720,7 +1725,7 @@ input.db-layer-edit {
 }
 
 .e-colorpicker-wrapper .e-dropdown-btn .e-btn-icon {
-    visibility: hidden;
+    visibility: visible;
 }
 
 .db-color-btn {
@@ -2297,6 +2302,7 @@ input.db-layer-edit {
     border:1px solid #e3e3e3;
     background: #e3e3e3;
     text-indent: 3px;
+    false
 }
 
 .e-icons {
@@ -2348,7 +2354,9 @@ input.e-input::selection,
 
 .db-text-input .e-numeric.e-input-group {
     padding: 1px 0px;
-    height: 24px;
+    height: 22px;
+    width: 80px;
+    /* margin: 0px 2px 0px 0px; */
 }
 
 .e-input-group.e-input-focus:not(.e-float-icon-left):not(.e-success):not(.e-warning):not(.e-error), 

@@ -23,7 +23,7 @@
         #designContextMenu{
             width: 50px;
         }
-        .db-toolbar-editor{
+        .db-toolbar-container{
             width: 100% !important;
         }
         </style>
@@ -107,10 +107,10 @@
                                 </div>
                             </div>
                             <div class="col-xs-6 db-col-left" >
-                                    <button style="font-size: 10;" id="pagePortrait">Portrait</button>
+                                    <button style="font-size: 10px;" id="pagePortrait">Portrait</button>
                             </div>
                             <div class="col-xs-6 db-col-center" style="float:10px ;">
-                                    <button style="font-size: 10;" id="pageLandscape">LandScape</button>
+                                    <button style="font-size: 10px;" id="pageLandscape">LandScape</button>
                             </div>
                         </div>
                         <div class="row db-prop-row" id='pageDimension' style="display:none">
@@ -143,12 +143,9 @@
                         <div class="row ">
                             <div class="col-xs-6 db-col-left">
                                 <div class="db-color-container">
-                                    <div class="db-color-input">
-                                            <input id="pageBgColor" type="color">
+                                    <div class="db-color-input" >
+                                            <input id="pageBgColor" type="color" style="background-color:#ffffff ;" >
                                     </div>
-                                    <!-- <div class="db-color-btn">
-                                            <button id="pageBgColorPickerBtn"></button>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -237,13 +234,13 @@
                         <div id='nodeStyleProperties' class="db-node-style-prop">
                             <div class="row db-background-style">
                                 <div class="col-xs-6 db-col-right" style="margin-bottom: 3px;">
-                                    <span  class="db-prop-text-style">Background Type</span>
+                                    <span  class="db-prop-text-style">Background color</span>
                                 </div>
-                                <!-- <div class="row db-prop-row">
-                                    <div class="col-xs-12 db-col-left">
+                                 <div class="row db-prop-row">
+                                    <!-- <div class="col-xs-12 db-col-left">
                                         <input type="text" id='backgroundTypeDropdown' />
-                                    </div>
-                                </div> -->
+                                    </div> -->
+                                </div> 
                                 <!-- <div id='gradientStyle' class="row db-prop-row db-gradient-style-hide"> -->
                                     <div class="col-xs-6 db-col-left">
                                         <div class="db-color-container">
