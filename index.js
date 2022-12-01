@@ -5449,7 +5449,7 @@ function onClickDisable(args)
                 toolbarEditor.items[i].template = '';
               }
               else if(i === 31) {
-                var obj =  diagram.selectedItems.nodes.length>0 ?diagram.selectedItems.nodes[0]: diagram.selectedItems.connectors[0];
+                var obj =  diagram.selectedItems.nodes.length>0 ?diagram.selectedItems.nodes[0] : diagram.selectedItems.connectors[0];
                 if(obj.annotations.length && obj.annotations[0].content)
                 {
                   toolbarEditor.items[i].template = '';
