@@ -145,10 +145,10 @@ input, button, select, textarea {
 
 .main-content {
     margin: 0;
-    left:212px;
+    left:255px;
     height: calc(100% - 112px);
     position:absolute;
-    width:calc(100% - 212px);
+    width:calc(100% - 255px);
 }
 
 .db-palette-parent {
