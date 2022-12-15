@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+    <head>
+        <script src="https://cdn.syncfusion.com/ej2/20.3.47/dist/ej2.min.js" type="text/javascript"></script>
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/fluent.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-base/styles/fluent.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-buttons/styles/fluent.css" rel="stylesheet"> 
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-popups/styles/fluent.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-splitbuttons/styles/fluent.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-diagrams/styles/fluent.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-navigations/styles/fluent.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-inputs/styles/fluent.css" rel="stylesheet">
+        <link href="https://cdn.syncfusion.com/ej2/20.3.47/ej2-dropdowns/styles/fluent.css" rel="stylesheet">
+        <link href="./assets/index.css" rel="stylesheet" />
+        <link href="./assets/db-icons1/style.css" rel="stylesheet" />
+        <link href="./assets/dbstyle/diagrambuilder.css" rel="stylesheet" />
+        
+    </head>
+    <body>
+       
+        <style>.e-file-select-wrap {
+            display: none;
+        }
+        #designContextMenu{
+            width: 50px;
+        }
+        .db-toolbar-container{
+            width: 100% !important;
+        }
+        </style>
+         <!-- <div class="sb-content-overlay">
+            <div class="sb-loading">
+                <svg class="circular" height="40" width="40">
+                    <circle class="loadingPath" cx="25" cy="25" r="20" fill="none" stroke-width="6" stroke-miterlimit="10"></circle>
+                </svg>
+            </div>
+        </div>
+        <div id="content-area" style="height: 100%">
+        </div> -->
+     <input type="file" id="fileupload" name="UploadFiles">
+     <ul id = "designContextMenu"></ul>
+    <div class='diagrambuilder-container' >
+        <div class='header navbar'>
+            <div class="db-header-container">
+                <div class="db-diagram-name-container">
+                    <span id='diagramName' style="width:250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="db-diagram-name" onclick="renameDiagram(event)">Untitled Diagram</span>
+                    <input id='diagramEditable' type="text" class="db-diagram-name" onkeydown="diagramNameKeyDown(event)" onfocusout= "diagramNameChange(event)"/>
+                    <span id='diagramreport' class="db-diagram-name db-save-text"></span>
+                </div>
+                <div class='db-menu-container'>
+                    <div class="db-menu-style">
+                        <button id="btnFileMenu"></button>
+                    </div>
+                    <div class="db-menu-style">
+                        <button id="btnEditMenu"></button>
+                    </div>
+                    <div class="db-menu-style">
+                        <button id="btnInsertMenu"></button>
+                    </div>
+                    <div class="db-menu-style">
+                        <button id="btnDesignMenu"></button>
+                    </div>
+                    <div class="db-menu-style">
+                        <button id="btnViewMenu"></button>
+                    </div>   
+                </div>
+            </div>
+            <div class='db-toolbar-editor' >
+                <div class='db-toolbar-container'>
+                        <div id="toolbarEditor" >
+                           
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class='row content'>
+            <div class='sidebar show-overview'>
+                <div class="db-palette-parent">
+                    <div id="symbolpalette"></div>
+                </div>
+            
+            </div>
+            <div class='main-content' role='main'>
+                <div class="db-diagram-container">
+                    <div id="diagramContainerDiv" class='db-current-diagram-container'>
+                        <div id="diagram"></div>
+                    </div>
+                </div>
+                <div class='db-property-editor-container' style="overflow:auto;">
+                    <div id="generalDiagramContainer" class="db-general-diagram-prop-container">
+                         <div id='diagramPropertyContainer' class="db-diagram-prop-container">
+                        <div class="row db-prop-header-text">
+                            Page Settings
+                        </div>
+                        <div class="row db-prop-row">
+                            <div class="col-xs-12 db-col-left">
+                                <span  class="db-prop-text-style">Format</span>
+                                    <input type="text" id='pageSettingsList' />
+                            </div>
+                        </div>
+                        <div class="row" id="pageOrientation" style="margin-top: 10px;">
+                            <div class="row db-prop-row">
+                                <div class="col-xs-6 db-col-right" >
+                                    <span class="db-prop-text-style">Orientation</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 db-col-left" >
+                                    <button style="font-size: 10px;" id="pagePortrait">Portrait</button>
+                            </div>
+                            <div class="col-xs-6 db-col-center" style="float:10px ;">
+                                    <button style="font-size: 10px;" id="pageLandscape">LandScape</button>
+                            </div>
+                        </div>
+                        <div class="row db-prop-row" id='pageDimension' style="display:none">
+                            <div class="col-xs-6 db-col-left">
+                                <div class="db-text-container">
+                                    <div class="db-text">
+                                        <span>W</span>
+                                    </div>
+                                    <div class="db-text-input">
+                                        <input id="pageWidth" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 db-col-right">
+                                <div class="db-text-container">
+                                    <div class="db-text">
+                                        <span>H</span>
+                                    </div>
+                                    <div class="db-text-input">
+                                            <input id="pageHeight" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row db-prop-row" style="margin-top: 10px;">
+                            <div class="col-xs-6 db-col-left">
+                                <span class="db-prop-text-style">Background</span>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-xs-6 db-col-left">
+                                <div class="db-color-container">
+                                    <div class="db-color-input" >
+                                            <input id="pageBgColor" type="color" style="background-color:#ffffff ;" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row db-prop-row" style="margin-top: 10px;">
+                                <input id="showPageBreaks" type="checkbox" />
+                        </div>
+                    </div>
+                    <div id='nodePropertyContainer' class="db-node-prop-container" style="display:none">
+                        <div class="db-node-behaviour-prop" id="dimen">
+                            <div class="row db-prop-header-text">
+                                Dimensions
+                            </div>
+                            <!-- <div class="db-prop-separator" style="background-color: #b5b5b5;margin-bottom: 15px;"> -->
+                            <div class="row db-prop-row">
+                                <div class="col-xs-6 db-col-left" style="width: 97px;" >
+                                    <div class="db-text-container">
+                                        <div class="db-text">
+                                            <span>X</span>
+                                        </div>
+                                        <div class="db-text-input">
+                                            <input style="width: 72px;" id="nodeOffsetX" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 db-col-right" style="width: 97px;">
+                                    <div class="db-text-container">
+                                        <div class="db-text">
+                                            <span>Y</span>
+                                        </div>
+                                        <div class="db-text-input">
+                                                <input style="width: 72px;" id="nodeOffsetY" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row db-prop-row">
+                                <div class="col-xs-6 db-col-left" style="width: 97px;">
+                                    <div class="db-text-container">
+                                        <div class="db-text">
+                                            <span>W</span>
+                                        </div>
+                                        <div class="db-text-input">
+                                                <input style="width: 72px;" id="nodeWidth" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 db-col-right" style="width: 97px;">
+                                    <div class="db-text-container">
+                                        <div class="db-text">
+                                            <span>H</span>
+                                        </div>
+                                        <div class="db-text-input">
+                                                <input style="width: 72px;" id="nodeHeight" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2 db-col-left" style="width: 20px;padding-left:7px">
+                                    <button style="height: 26px;" id="aspectRatioBtn"></button>
+                                </div>
+                            </div>
+                            <div class="row db-prop-row">
+                                <div class="col-xs-6 db-col-left" style="width: 97px;">
+                                    <div class="db-text-container">
+                                        <div class="db-text">
+                                                <button style="margin: -5px 0px 0px 0px;" id="rotateIconBtn"></button>
+                                        </div>
+                                        <div class="db-text-input">
+                                                <input style="width: 72px;" id="nodeRotateAngle" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="db-prop-separator" style="background-color: #b5b5b5;margin-bottom: 15px;">
+                            </div>
+                            <div class="row db-prop-row">
+                                <div class="col-xs-6 db-col-left">
+                                    <button style="font-size: 10px;"  id="insertlink">Insert link</button>
+                                </div>
+                                <div class="col-xs-6 db-col-left">
+                                    <button style="font-size: 10px;"  id="insertimage">Insert image</button>
+                                </div>
+                            </div>
+                            <div class="db-prop-separator" style="background-color: #b5b5b5;">
+                            </div>
+                        </div>
+                        <div id='nodeStyleProperties' class="db-node-style-prop">
+                            <div class="row db-background-style">
+                                <div class="col-xs-6 db-col-right" style="margin-bottom: 3px;">
+                                    <span  class="db-prop-text-style">Background color</span>
+                                </div>
+                                 <div class="row db-prop-row">
+                                    <!-- <div class="col-xs-12 db-col-left">
+                                        <input type="text" id='backgroundTypeDropdown' />
+                                    </div> -->
+                                </div> 
+                                <!-- <div id='gradientStyle' class="row db-prop-row db-gradient-style-hide"> -->
+                                    <div class="col-xs-6 db-col-left">
+                                        <div class="db-color-container">
+                                            <div class="db-color-input">
+                                                <input id="nodeFillColor" type="color">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-2 db-col-center">
+                                        <button style="height: 26px;" id="gradientDirection"></button>
+                                    </div> -->
+                                    <!-- <div class="col-xs-4 db-col-right">
+                                        <div class="db-color-container">
+                                            <div class="db-color-input">
+                                                    <input id="nodeGradientColor" type="color">
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                <!-- </div> -->
+                            </div>
+                            <div class="row db-border-style">
+                                <div class="row db-prop-header-text db-border-style-header">
+                                    Border/Line Styles
+                                </div>
+                                <div class="row db-prop-row">
+                                    <div class="col-xs-6 db-col-right" >
+                                        <span class="db-prop-text-style">Border Type</span>
+                                    </div>
+                                    <div class="col-xs-2 db-col-left" style="margin-left: -6px;">
+                                        <span class="db-prop-text-style">Color</span>
+                                    </div>
+                                    <div class="col-xs-2 db-col-center" style="margin-left: 6px;">
+                                        <span class="db-prop-text-style">Thickness</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6 db-col-right" style="width: 90px;">
+                                        <input type="text" id='nodeBorderStyle' />
+                                    </div>
+                                    <div class="col-xs-2 db-col-center" >
+                                        <div class="db-color-container" style="width: 50px;margin-left: 5px;">
+                                            <div class="db-color-input">
+                                                    <input id="nodeStrokeColor" type="color">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4 db-col-center" style="width: 70px;margin-left: 25px;">
+                                        <div class="db-text-container">
+                                        <div class="db-text-input" >
+                                        <input style="width: 66px;" id="nodeStrokeWidth" type="text" /></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row db-prop-row">
+                                    <div class="col-xs-2 db-col-right db-prop-text-style" style="margin-right: 3px;padding-top: 6px">
+                                        <span class="db-prop-text-style">Opacity</span>
+                                    </div>
+                                    <div class="col-xs-8 db-col-left" style="width: 130px;padding-right: 10px;">
+                                        <div id='nodeOpacitySlider'></div>
+                                    </div>
+                                    <div class="col-xs-2 db-col-right" style="width: 50px;">
+                                        <input id="nodeOpacitySliderText"  type="text" value= '100%' readOnly="true" class="db-readonly-input" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div id='connectorPropertyContainer' class="db-connector-prop-container" style="display:none">
+                        <div class="row db-prop-header-text">
+                            Connector Properties
+                        </div>
+                        <div class="db-prop-separator" style="background-color: #b5b5b5;"></div>
+                        <div class="row db-prop-row">
+                            <!-- <div class="col-xs-6 db-col-left db-prop-text-style">
+                                <span class="db-prop-text-style">Connector Type</span>
+                            </div> -->
+                            <div class="col-xs-6 db-col-left db-prop-text-style">
+                                <span class="db-prop-text-style">Line color</span>
+                            </div>
+                            <div class="col-xs-4 db-col-right db-prop-text-style" style="margin-left: 18px;">
+                                <span class="db-prop-text-style">Thickness</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- <div class="col-xs-6 db-col-left">
+                                    <input type="text" id='lineTypeDropdown' />
+                            </div> -->
+                            <div class="col-xs-6 db-col-left">
+                                <div class="db-color-container">
+                                    <div class="db-color-input">
+                                        <input id="lineColor" type="color">
+                                    </div>
+                                    <!-- <div class="db-color-btn">
+                                            <button id="lineColorIconBtn"></button>
+                                    </div> -->
+                                  
+                                </div>
+                            </div>
+                            <div class="col-xs-6 db-col-right">
+                                <div class="db-text-container" style="width: 77px; margin-left: 20px;">
+                                    <div class="db-text-input">
+                                        <input style="width: 74px;" id="lineWidth" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row db-prop-row">
+                            
+                        </div> -->
+                       
+                        <!-- <div class="row">
+                            <div class="col-xs-4 db-col-right">
+                                    <input id="lineWidth" type="text" />
+                            </div>
+                        </div> -->
+                        <div class="row db-prop-row">
+                            <div class="col-xs-2 db-col-right db-prop-text-style" style="margin-right: 3px;padding-top: 6px">
+                                <span class="db-prop-text-style">Opacity</span>
+                            </div>
+                            <div class="col-xs-8 db-col-left" style="width: 140px;padding-right:10px">
+                                    <div id='default1'></div>
+                            </div>
+                            <div class="col-xs-2 db-col-left" style="width:50px">
+                                <input type="text" id="connectorOpacitySliderText" value= '100%' readonly="true" class="db-readonly-input" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id='textPropertyContainer' class="db-text-prop-container" style="display:none">
+                        <div class="db-prop-separator" style="background-color: #b5b5b5;">
+                        </div>
+                        <div class="col-xs-8 db-col-left db-prop-text-style">
+                            <span class="db-prop-text-style">Text</span>
+                        </div>
+                        <div class="col-xs-4 db-col-left db-prop-text-style">
+                            <span class="db-prop-text-style">Size</span>
+                        </div>
+                        <div class="row db-prop-row">
+                            <div class="col-xs-8 db-col-left">
+                                    <input type="text" id='fontFamily' />
+                            </div>
+                            <div class="col-xs-4 db-col-right">
+                                <div class="db-text-container">
+                                    <div class="db-text-input">
+                                        <input style="width: 75px;" id="fontSizeTextProperties" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row db-prop-row">
+                            <div class="col-xs-6 db-col-left" id="textPositionDiv" style="width:120px">
+                                    <input type="text" id='ddlTextPosition' />
+                            </div>
+                            <div class="col-xs-4 db-col-right" id="textColorDiv" style="width: 95px;margin-left:4px">
+                                <div class="db-color-container">
+                                    <div class="db-color-input">
+                                            <input id="textColor" type="color">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row db-prop-row">
+                            <div class="col-xs-6 db-col-left">
+                                    <div id="toolbarTextStyle"></div>
+                            </div>
+                            <div class="col-xs-6 db-col-right">
+                                    <div id="toolbarTextSubAlignment"></div>
+                            </div>
+                        </div>
+                        <div class="row db-prop-row" id='toolbarTextAlignmentDiv'>
+                                <div id="toolbarTextAlignment"></div>
+                        </div>
+                        <div class="row db-prop-row">
+                            <div class="col-xs-2 db-col-right db-prop-text-style" style="margin-right: 3px;padding-top: 6px">
+                                <span class="db-prop-text-style">Opacity</span>
+                            </div>
+                            <div class="col-xs-8 db-col-left" style="width: 130px;padding-right: 10px;">
+                                <div id='opacityTextSlider'></div>
+                            </div>
+                            <div class="col-xs-2 db-col-right" style="width: 50px;">
+                                <input id='textOpacityText' type="text" value='100%' class="db-readonly-input" readOnly="true"/>
+                            </div>
+                        </div>
+                        <!-- <div class="db-prop-separator" style="background-color: #b5b5b5;"></div> -->
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="hyperlinkDialog"></div>
+    <div id="exportDialog"></div>
+    <div id="printDialog"></div>
+    <div id="fileUploadDialog"></div>
+    <script src="./scripts/events.js" type="text/javascript"></script>
+    <script src="./scripts/dropdowndatasource.js" type="text/javascript"></script>
+    <script src="./scripts/properties.js" type="text/javascript"></script>
+    <script src="./scripts/utilitymethods.js" type="text/javascript"></script>
+    <script src="./scripts/index.js" type="text/javascript"></script> 
+    </body>
+</html>
