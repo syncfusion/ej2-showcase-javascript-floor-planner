@@ -14,41 +14,37 @@ var DiagramClientSideEvents = (function () {
               nodeContainer.classList.remove('connector');
               if (selectedItems.length > 1) {
                   this.multipleSelectionSettings(selectedItems);
-                  toolbarEditor.items[8].tooltipText = 'Group';
-                  toolbarEditor.items[8].prefixIcon = 'sf-icon-group';
-                  toolbarEditor.items[8].template = '';
-                  this.multipleSelection();
-                  toolbarEditor.hideItem(9,false);
-                  toolbarEditor.hideItem(18,false);
-                  toolbarEditor.hideItem(23,false);
-                  toolbarEditor.hideItem(26,false);
-                  toolbarEditor.hideItem(29,false);
-                  toolbarEditor.hideItem(32,true);
+                  toolbarEditor.items[7].tooltipText = 'Group';
+                  toolbarEditor.items[7].prefixIcon = 'sf-icon-group';
+                        // toolbarEditor.items[7].template = '';
+                    for(var i =7;i<=28;i++){
+                        toolbarEditor.items[i].visible = true;
+                    } 
               }
               else if (selectedItems.length === 1) {
                   this.singleSelectionSettings(selectedItems[0]);
-                  UtilityMethods.prototype.onClickDisable(false);
-                  toolbarEditor.hideItem(9,true);
-                  toolbarEditor.hideItem(18,false);
-                  toolbarEditor.hideItem(23,false);
-                  toolbarEditor.hideItem(26,false);
-                  toolbarEditor.hideItem(29,false)
+                  for(var i=7;i<=28;i++){
+                    if(i<=16)
+                    {
+                        toolbarEditor.items[i].visible = false;
+                    }
+                    else{
+                        toolbarEditor.items[i].visible = true;
+
+                    }
+                }
                   if(selectedItems[0].children && selectedItems[0].children.length>0)
                               {
-                                toolbarEditor.items[8].tooltipText = 'UnGroup';
-                                toolbarEditor.items[8].prefixIcon = 'sf-icon-ungroup';
-                                toolbarEditor.items[8].disabled = false;
-                                toolbarEditor.items[8].template = '';
+                                toolbarEditor.items[7].tooltipText = 'UnGroup';
+                                toolbarEditor.items[7].prefixIcon = 'sf-icon-ungroup';
+                                toolbarEditor.items[7].visible = true;
                               }
               }
               else {
                   this.objectTypeChange('diagram');
-                  UtilityMethods.prototype.onClickDisable(true);
-                  toolbarEditor.hideItem(9,true);
-                  toolbarEditor.hideItem(18,true);
-                  toolbarEditor.hideItem(23,true);
-                  toolbarEditor.hideItem(26,true);
-                  toolbarEditor.hideItem(29,true);
+                  for(var i =7;i<=28;i++){
+                    toolbarEditor.items[i].visible = false;
+                } 
               }
           }
             }  
